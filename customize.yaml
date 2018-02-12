@@ -1,0 +1,123 @@
+sun.sun:
+  above horizon: Uppe
+  friendly_name: Solens läge
+sensor.kok_temperature:
+  friendly_name: KÖK
+  homebridge_hidden: false
+sensor.yr_symbol:
+  friendly_name: Väder
+sensor.yr_wind_speed:
+  friendly_name: Vindhastighet ute
+sensor.yr_humidity:
+  friendly_name: luftfuktighet ute
+sensor.yr_temperature:
+  friendly_name: Temp ute
+sensor.yr_pressure:
+  friendly_name: Tryck ute
+sensor.yr_wind_direction:
+  friendly_name: Vindriktning
+sensor.yr_precipitation:
+  friendly_name: Regn mm/h just nu
+sensor.vardagsrum_temperature:
+  friendly_name: Temp Vardagsrum
+sensor.vardagsrum_humidity:
+  friendly_name: Luftfuktighet Vardagsrum
+group.all_lights: {}
+sensor.sofias_iphone_battery_level:
+  hidden: true
+sensor.sofias_iphone_battery_state:
+  hidden: true
+group.ovrigt:
+  order: 1
+group.lampor3:
+  order: 2
+group.lampor2:
+  order: 3
+lock.hdu757_lock:
+  assumed_state: false
+zone.home:
+  friendly_name: Hemma
+group.default_view:
+  friendly_name: Hemma
+group.all_switches:
+  hidden: false
+switch.motorvarmaren:
+  icon: mdi:radiator
+light.matbord:
+  assumed_state: true
+  icon: mdi:ceiling-light
+switch.hallen:
+  icon: mdi:lightbulb
+switch.fonster_bak1:
+  icon: mdi:lightbulb
+switch.fonster_bak2:
+  icon: mdi:lightbulb
+switch.fonster_gangvag:
+  icon: mdi:lightbulb
+switch.kok1:
+  icon: mdi:lightbulb
+switch.kok2:
+  icon: mdi:lightbulb
+switch.liams_fonster:
+  icon: mdi:lightbulb
+switch.sovrum:
+  icon: mdi:lightbulb
+switch.tvbank:
+  icon: mdi:lightbulb
+switch.ute_entre:
+  icon: mdi:alarm-light
+switch.allrum:
+  icon: mdi:lightbulb
+switch.mirandas_fonster:
+  icon: mdi:lightbulb
+sensor.vardagsrummet_humidity:
+  friendly_name: Vardagsrummet luftfuktighet
+sensor.sun_state:
+  icon: mdi:white-balance-sunny
+sensor.uptime:
+  friendly_name: Online
+  unit_of_measurement: dagar
+light.tv_bank:
+  assumed_state: true
+  friendly_name: TV bänk
+sensor.yr_cloudiness:
+  friendly_name: Molnighet
+sensor.yr_fog:
+  friendly_name: Dimma
+group.all_scripts:
+  hidden: false
+light.tradfri_bulb_e27_opal_1000lm:
+  assumed_state: true
+  friendly_name: Tvättstugan
+sensor.tradfri_motion_sensor:
+  friendly_name: Motion sensor tvättstugan
+switch.under_trappan:
+  icon: mdi:lightbulb
+group.utener:
+  assumed_state: true
+  icon: mdi:alarm-light
+group.Lampor5:
+  assumed_state: true
+  icon: mdi:lightbulb
+group.uteupp:
+  assumed_state: true
+  icon: mdi:alarm-light
+light.tv:
+  assumed_state: true
+  icon: mdi:television-classic
+light.fonster_vrum:
+  assumed_state: true
+group.all_automations:
+  hidden: false
+  homebridge_hidden: true
+group.ytterbelysningen:
+  icon: mdi:alarm-light
+switch.fonster_kok:
+  icon: mdi:lightbulb
+switch.ute_entreslinga:
+  icon: mdi:alarm-light
+switch.ute_trad_baksida:
+  icon: mdi:alarm-light
+sensor.disk_used_home:
+  friendly_name: Disk used
+script.ljud: {}

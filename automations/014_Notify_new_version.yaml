@@ -1,0 +1,16 @@
+###################################
+## auto Skicka notis när ny version finns
+##
+## last changed: 2017-11-06
+###################################
+- alias: '014: Notify new Version'
+  id: '014'
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  condition: []
+  action:
+    - service: notify.ios_danell
+      data:
+        message: "Version {{ states.updater.updater.state }} \xE4r nu tillg\xE4nglig"
+        title: "Ny version tillg\xE4nglig"

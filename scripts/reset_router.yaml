@@ -1,0 +1,34 @@
+reset_router:
+  alias: "Reset Telia router"
+  sequence:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.router
+    - delay:
+        seconds: 5
+    - service: switch.turn_off
+      data:
+        entity_id: switch.router
+    - delay:
+        seconds: 5
+    - service: switch.turn_off
+      data:
+        entity_id: switch.router
+    - delay:
+        minutes: 1
+    - service: switch.turn_on
+      data:
+        entity_id: switch.router
+    - delay:
+        seconds: 5
+    - service: switch.turn_on
+      data:
+        entity_id: switch.router
+    - delay:
+        seconds: 5
+    - service: switch.turn_on
+      data:
+        entity_id: switch.router
+    - delay:
+        seconds: 5
+    - service: homeassistant.restart

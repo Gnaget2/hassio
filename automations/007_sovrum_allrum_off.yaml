@@ -1,0 +1,19 @@
+###################################
+## auto controllerar ytterbelsyningen 
+##
+## last changed: 2017-11-06
+###################################
+- alias: '007: Overvaningen sovrum allrum off'
+  id: '007'
+  trigger:
+    - platform: time
+      at: '22:45'
+  condition: []
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: 
+          - switch.allrum
+          - switch.sovrum          
+        
+        

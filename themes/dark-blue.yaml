@@ -1,0 +1,29 @@
+################################################################
+## Themes / Dark Orange
+##
+## Author: @ludeeus
+## Original: https://github.com/ludeeus/hass-config/blob/Configuration/packages/frontend_themes.yaml
+################################################################
+
+  font-size: '4px'
+  disabled-text-color: 'rgba(255, 255, 255, 0.5)'
+  divider-color: 'rgba(255, 255, 255, 0.12)'
+  paper-card-background-color: '#424242'
+  paper-card-header-color: '#ffffff'
+  paper-grey-200: '#616161'
+  paper-item-icon-color: "var(--primary-color)"  
+  paper-listbox-background-color: '#424242'
+  paper-listbox-color: '#ffffff'
+  paper-slider-active-color: "var(--primary-color)"  
+  paper-slider-knob-color: "var(--primary-color)"  
+  paper-slider-knob-start-color: "var(--primary-color)"  
+  paper-slider-pin-color: "var(--primary-color)"
+  paper-slider-secondary-color: '#33f2d8'
+  paper-toggle-button-checked-bar-color: "var(--primary-color)"  
+  paper-toggle-button-checked-button-color: "var(--primary-color)"  
+  paper-toggle-button-checked-ink-color: "var(--primary-color)"
+  primary-background-color: '#303030'
+  primary-color: '#4ba6ee'
+  primary-text-color: '#ffffff'
+  secondary-background-color: "var(--primary-background-color)"  
+  secondary-text-color: 'rgba(255, 255, 255, 0.7)'

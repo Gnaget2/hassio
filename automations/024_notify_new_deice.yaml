@@ -1,0 +1,18 @@
+###################################
+## meddela ny enhet upptäckt
+##
+## last changed: 2018-01-04
+###################################
+- alias: '024: New Device Tracked'
+  id: '024'
+  trigger:
+    platform: event
+    event_type: device_tracker_new_device
+  action:
+    - service: notify.ios_danell
+      data_template:
+        message: >
+          New device:
+          {{trigger.event.data.host_name}}
+          ({{trigger.event.data.entity_id}})
+        title: 'New device Detected'

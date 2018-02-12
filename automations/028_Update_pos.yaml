@@ -1,0 +1,19 @@
+###################################
+## Ask phones to update pos every hour at min 59
+##
+## last changed: 2018-01-26
+###################################
+- alias: '028: Update pos'
+  id: '028'
+  trigger:
+    - platform: time
+      minutes: '/10'
+      seconds: 00
+  condition: []
+  action:
+    - service: notify.ios_danell
+      data:
+        message: "request_location_update"
+    - service: notify.ios_sofias_iphone
+      data:
+        message: "request_location_update"

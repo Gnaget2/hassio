@@ -1,0 +1,427 @@
+############################################################
+#
+# Home Assistant main config file and include files
+#
+############################################################
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: !secret ha_name
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret zone_lati_home
+  longitude: !secret zone_long_home
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 8
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Stockholm
+  # Customizations
+  customize: !include customize.yaml
+  customize_domain: {}
+  customize_glob: !include customize_glob.yaml
+  packages: !include_dir_named packages
+
+
+
+
+# Show links to resources in log and frontend
+introduction:
+# Enables the frontend
+frontend:
+  extra_html_url:
+    - /local/custom_ui/state-card-custom-ui.html
+    - /local/custom_ui/state-card-tiles.html
+  extra_html_url_es5:
+    - /local/custom_ui/state-card-custom-ui-es5.html
+    - /local/custom_ui/state-card-tiles.html
+  themes: !include_dir_named themes
+
+# Enables configuration UI
+config:
+# Enables map component
+map:
+#Web page settings
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: secret! http_baseurl
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  trusted_networks:
+    - 127.0.0.1
+    - 192.168.1.0/24
+  ip_ban_enabled: True
+  login_attempts_threshold: 5
+# Checks for available updates
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - ikea_tradfri
+# Enables support for tracking state changes over time
+history:
+  exclude:
+    domains:
+      - automation
+      - group
+      - script
+    entities:
+      - remote.hub1
+      - sensor.date
+      - binary_sensor.hdu757_brake_fluid
+      - binary_sensor.hdu757_bulbs
+      - binary_sensor.hdu757_doors
+      - binary_sensor.hdu757_service
+      - binary_sensor.hdu757_washer_fluid
+      - binary_sensor.hdu757_windows
+      - input_select.living_room_tv
+      - media_player.apple_tv
+      - media_player.spotify
+      - remote.apple_tv
+      - sensor.hdu757_fuel_amount
+      - sensor.hdu757_fuel_level
+      - sensor.hdu757_odometer
+      - sensor.hdu757_range
+      - device_tracker.danell_2
+      - device_tracker.danelllan
+      - device_tracker.fia_wifi
+      - camera.weather
+      - light.vrum1
+      - light.vrum2
+      - light.vrum3
+      - light.hallen_1
+      - light.hallen_2
+      - light.hallen_3
+      - light.ute_bak1_ner
+      - light.ute_bak1_upp
+      - light.ute_bak2_ner
+      - light.ute_bak2_upp
+      - light.ute_forad_ner
+      - light.ute_framn
+      - light.ute_framu
+      - light.ute_gangvag_ner
+      - light.ute_gangvag_upp
+      - light.ute_uppfart_ner
+      - light.ute_uppfart_upp
+      - sensor.yr_symbol
+      - switch.rorelse_koket
+      - input_text.harmony_remote
+      - light.hue_white_lamp_2
+      - light.hue_white_lamp_3
+      - sensor.netatmo_inne_wifi
+      - sensor.netatmo_regn_battery
+      - sensor.netatmo_regn_radio
+      - sensor.netatmo_ute_battery
+      - sensor.netatmo_ute_radio
+      - sensor.netatmo_vind_angle
+      - sensor.netatmo_vind_battery
+      - sensor.netatmo_vind_gust_angle
+      - sensor.netatmo_vind_radio
+      - sensor.disk_used_home 
+      - sensor.uptime
+      - sensor.ram_used
+      - sensor.cpu_used
+      - sensor.tradfri_remote_control
+      - sensor.tradfri_motion_sensor
+
+# View all events in a logbook and what to exclude
+logbook:
+  exclude:
+    entities:
+      - sensor.yr_symbol
+      - remote.apple_tv
+      - remote.hub1
+      - switch.rorelse_koket
+      - device_tracker.fia_wifi
+      - device_tracker.sofias_iphone
+      - group.appletv
+      - media_player.apple_tv
+      - device_tracker.danell_2
+      - device_tracker.danell
+      - device_tracker.danelllan
+      - camera.weather
+      - light.vrum1
+      - light.vrum2
+      - light.vrum3
+      - light.hallen_1
+      - light.hallen_2
+      - light.hallen_3
+
+#Recorder delete old data from DB
+recorder:
+  purge_interval: 2
+  purge_keep_days: 14
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+    entities:
+      - sun.sun # Don't record sun data
+      - sensor.netatmo_inne_wifi
+      - sensor.netatmo_regn_battery
+      - sensor.netatmo_regn_radio
+      - sensor.netatmo_ute_battery
+      - sensor.netatmo_ute_radio
+      - sensor.netatmo_vind_angle
+      - sensor.netatmo_vind_battery
+      - sensor.netatmo_vind_gust_angle
+      - sensor.netatmo_vind_radio
+      - sensor.yr_symbol
+      - sensor.yr_cloudiness
+      - sensor.yr_fog
+      - sensor.yr_temperature
+      - sensor.yr_wind_direction
+      - sensor.yr_wind_speed 
+      - sensor.vardagsrummet_temperature
+      - sensor.vardagsrummet_humidity
+      - sensor.yr_precipitation
+      - sensor.yr_pressure
+      - sensor.yr_humidity
+      - sensor.disk_used_home 
+      - sensor.uptime
+      - sensor.ram_used
+      - sensor.cpu_used
+      - sensor.tradfri_remote_control
+      - sensor.tradfri_motion_sensor
+# Track the sun
+sun:
+#Enables IOS components and tracking
+ios:
+#Device tracker component
+device_tracker:
+  - platform: bluetooth_tracker
+    interval_seconds: 20
+    consider_home: 60
+    track_new_devices: no
+  - platform: nmap_tracker
+    consider_home: 60
+    hosts: 
+      - 192.168.1.201
+      - 192.168.1.202
+  
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_id
+    client_secret: !secret spotify_secret
+  - platform: sonos
+
+#Notify component for messages and puch notis
+notify:
+
+alexa:
+
+
+
+tts:
+  - platform: google
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 300
+    language: 'sv'
+#433mhz controller
+rfxtrx:
+  device: /dev/ttyUSB1
+
+#Lights and bridges like tradfri and Hue
+tradfri:
+  host: 192.168.1.205
+  allow_tradfri_groups: false
+hue:
+  bridges:
+    - host: 192.168.1.204
+      filename: phue.conf
+      allow_unreachable: true
+      allow_hue_groups: false
+light:
+  - platform: rfxtrx
+    automatic_add: false
+    devices:
+      0b1100000385a35901000070:
+        name: Matbord
+
+# All switches and settings
+switch:
+  platform: rfxtrx
+  automatic_add: false
+  signal_repetitions: 3
+  devices:
+    0b1100000000cfa602010f60:
+      name: Kök2
+    0b11000000b0fa0c01010f70:
+      name: Kök1
+    0b1100090159857201010f70:
+      name: Ute Entreslinga
+    0b1100090159857202010f70:
+      name: Ute träd baksida
+    0b1100090159857203010f70:
+      name: Under Trappan
+    0b1100000149f9e101000070:
+      name: Fönster bak1
+    0b11000003addc7d01000070:
+      name: Fönster bak2
+    0b11000201d99a1201000070:
+      name: Hallen
+    0b11000a018e6f5210010f60:
+      name: Fönster kök
+    0b11000201811ff501000070:
+      name: Fönster gångväg
+    0b11000302d77c2901000070:
+      name: Ute Entre
+    0b1100000187956601000070:
+      name: Allrum
+    0b110000033ad7de01000070:
+      name: Sovrum
+    0b11000001321dee01000070:
+      name: Liams fönster
+    0b1100010029c6d301000070:
+      name: Mirandas fönster
+    0b11000d0328562e01000070:
+      name: Motorvärmaren
+    0b1100090159857204010f70:
+      name: VrumTAK
+    0b11000d0188057e0a010f70:
+      name: Rörelse köket
+    0b110006015bd9920a010f70:
+      name: Ljussensor
+    0b11000234bc0cfe04010f70:
+      name: Router
+
+#All sensors
+sensor:
+  - platform: template
+    sensors:
+      sun_state:
+        friendly_name: "Solens läge"
+        value_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            Uppe
+          {% else %}
+            Nere
+          {% endif %}
+        icon_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            mdi:weather-sunny
+          {% else %}
+            mdi:weather-night
+          {% endif %}
+      vind_nu:
+        value_template: '{{ (states.sensor.netatmo_vind_strength.state | float / 3.6) | round(1) }}'
+        friendly_name: Vind
+        unit_of_measurement: 'm/s'
+        icon_template: mdi:weather-windy
+      vind_byar:
+        value_template: '{{ (states.sensor.netatmo_vind_gust_strength.state | float / 3.6) | round(1) }}'
+        friendly_name: Vindbyar
+        unit_of_measurement: 'm/s'
+        icon_template: mdi:weather-windy
+      micke:
+        friendly_name: "Micke"
+        value_template: >-
+          {% if is_state("device_tracker.danell", "home") or is_state("device_tracker.danell_2", "home") or is_state("device_tracker.danelllan", "home") %}
+            Hemma
+          {% else %}
+          {% if is_state("device_tracker.danell", "not_home") %}
+            Borta
+          {% else %} {{ states("device_tracker.danell") }}
+          {% endif %}
+          {% endif %}
+        icon_template: >-
+          {% if is_state("device_tracker.danell", "home") or is_state("device_tracker.danell_2", "home") or is_state("device_tracker.danelllan", "home") %}
+            mdi:home-circle
+          {% else %}
+          {% if is_state("device_tracker.danell", "not_home") %}
+            mdi:close-circle-outline
+          {% else %}
+            {% set zone = states.device_tracker.danell.state %}
+            {{ states.zone[zone].attributes.icon }}
+          {% endif %}
+          {% endif %}
+      fia:
+        friendly_name: "Fia"
+        value_template: >-
+          {% if is_state("device_tracker.sofias_iphone", "home") or is_state("device_tracker.fia_wifi", "home") %}
+            Hemma
+          {% else %}
+          {% if is_state("device_tracker.sofias_iphone", "not_home") %}
+            Borta
+          {% else %} {{ states("device_tracker.sofias_iphone") }}
+          {% endif %}
+          {% endif %}
+        icon_template: >-
+          {% if is_state("device_tracker.sofias_iphone", "home") or is_state("device_tracker.fia_wifi", "home") %}
+            mdi:home-circle
+          {% else %}
+          {% if is_state("device_tracker.sofias_iphone", "not_home") %}
+            mdi:close-circle-outline
+          {% else %}
+            {% set zone = states.device_tracker.sofias_iphone.state %}
+            {{ states.zone[zone].attributes.icon }}
+          {% endif %}
+          {% endif %}
+  - platform: statistics
+    entity_id: sensor.kok_temperature
+    name: Kok_stats
+  - platform: statistics
+    entity_id: sensor.netatmo_inne_temperature
+    name: inne_stats
+  - platform: rfxtrx
+    automatic_add: False
+    devices:
+      0a52090087000092360179:
+        name: Vardagsrummet
+        data_type:
+         - Humidity
+         - Temperature
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_use_percent
+      - type: processor_use
+  - platform: uptime
+
+
+
+# Verisure integration
+verisure:
+  username: !secret verisure_u
+  password: !secret verisure_pw
+  alarm: 1
+  door_window: 0
+
+#Harmonu HUB and default activity
+remote:
+  - platform: harmony
+    name: Hub1
+    activity: TV
+    scan_interval: 5
+
+volvooncall:
+  username: !secret VOC_u
+  password: !secret VOC_pw
+
+
+camera:
+  - platform: generic
+    name: Weather
+    still_image_url: https://www.yr.no/place/Sweden/Stockholm/Upplands-Bro_Kommun/meteogram.svg
+    content_type: 'image/svg+xml'
+
+netatmo:
+  api_key: !secret netatmo_api
+  secret_key: !secret netatmo_secret
+  username: !secret netatmo_u
+  password: !secret netatmo_pw
+
+  #include files
+group: !include groups.yaml
+automation: !include_dir_merge_list automations
+zone: !include zones.yaml
+scene: !include scene.yaml
+script: !include_dir_merge_named scripts
+intent_script: !include_dir_merge_named alexa_intents

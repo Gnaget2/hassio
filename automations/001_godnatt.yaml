@@ -1,0 +1,25 @@
+###################################
+## auto godnatt, släck och stäng av 
+##
+## last changed: 2017-11-05
+###################################
+- alias: '001: Godnatt'
+  id: '001'
+  trigger:
+    - platform: state
+      entity_id: remote.hub1
+      to: 'off'
+      for:
+        minutes: 1
+    - platform: time
+      at: '23:30'
+  condition:
+    - condition: time
+      after: '22:00'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: group.Lampor4
+    - service: light.turn_off
+      data:
+        entity_id: group.Lampor7

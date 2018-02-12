@@ -1,0 +1,22 @@
+###################################
+## auto Starta Homebridge 1 min etfer omstart av HA
+##
+## last changed: 2017-11-06
+###################################
+- alias: '012: Start Homebridge after HA restart'
+  id: '012'
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition: []
+  action:
+    - service: notify.ios_danell
+      data:
+        message: "request_location_update"
+    - service: notify.ios_sofias_iphone
+      data:
+        message: "request_location_update"
+    - delay: '00:02:00'
+    - service: hassio.addon_restart
+      data:
+        addon: a0d7b954_homebridge

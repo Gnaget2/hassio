@@ -1,0 +1,72 @@
+  - name: Skolan
+    latitude: 59.513815
+    longitude: 17.633514
+    radius: 100
+    icon: mdi:school
+
+  - name: Dagis
+    latitude: 59.510954
+    longitude: 17.655898
+    radius: 20
+    icon: mdi:school
+
+  - name: !secret zone_name_MD_work
+    latitude: !secret zone_lati_MD_work
+    longitude: !secret zone_long_MD_work
+    radius: 200
+    icon: mdi:briefcase
+
+  # This will override the default home zone
+  - name: Home
+    latitude: !secret zone_lati_home
+    longitude: !secret zone_long_home
+    radius: 50
+    icon: mdi:home-circle
+
+  - name: !secret zone_name_fia_work
+    latitude: !secret zone_lati_fia_work
+    longitude: !secret zone_long_fia_work
+    radius: 150
+    icon: mdi:briefcase
+
+  - name: !secret zone_name_PI_home
+    latitude: !secret zone_lati_PI_home
+    longitude: !secret zone_long_PI_home
+    radius: 75
+    icon: mdi:home-outline
+
+  - name: Willys
+    latitude: 59.525243
+    longitude: 17.630106
+    radius: 100
+    icon: mdi:cart
+
+  - name: Bro Centrum
+    latitude: 59.516018
+    longitude: 17.642901
+    radius: 110
+    icon: mdi:apple-keyboard-command
+
+  - name: ICA Maxi
+    latitude: 59.414225
+    longitude: 17.863593
+    radius: 100
+    icon: mdi:cart
+
+  - name: Coop Brunna
+    latitude: 59.495811
+    longitude: 17.741048
+    radius: 80
+    icon: mdi:cart
+
+  - name: Bro IP
+    latitude: 59.506897
+    longitude: 17.645598
+    radius: 120
+    icon: mdi:soccer
+
+  - name: Bro
+    latitude: 59.515741
+    longitude: 17.651269
+    radius: 2500
+    icon: mdi:city

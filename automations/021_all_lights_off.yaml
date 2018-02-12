@@ -1,0 +1,20 @@
+###################################
+## auto controllerar ytterbelsyningen 
+##
+## last changed: 2017-11-27
+###################################
+- alias: '021: All Lights off'
+  id: '021'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.drivhusslingan_alarm
+      to: 'armed_away'
+  condition: []
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - group.Lampor8
+    - service: light.turn_off
+      data:
+        entity_id: group.Lampor7

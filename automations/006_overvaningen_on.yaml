@@ -1,0 +1,16 @@
+###################################
+## auto controllerar ytterbelsyningen 
+##
+## last changed: 2017-11-06
+###################################
+- alias: '006: Overvaningen on'
+  id: '006'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: -01:00:00
+  condition: []
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: group.Lampor2     

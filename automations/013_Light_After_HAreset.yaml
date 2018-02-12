@@ -1,0 +1,17 @@
+###################################
+## auto fixa matbordlampan etfer omstart av HA
+##
+## last changed: 2017-11-06
+###################################
+- alias: '013: Fix light after HA restart'
+  id: '013'
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition: []
+  action:
+    - delay: 00:00:15
+    - service: light.turn_on
+      data:
+        entity_id: light.matbord
+        brightness_pct: 80       

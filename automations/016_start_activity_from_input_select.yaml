@@ -1,0 +1,13 @@
+###################################
+## auto Uppdatera harmony input select uppdaterad av någon annan än HA
+##
+## last changed: 2017-11-06
+###################################
+- alias: '016: Start activity from input select'
+  id: '016'
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_tv
+  action:
+    service: script.turn_on
+    entity_id: script.input_select_harmony

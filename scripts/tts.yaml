@@ -1,0 +1,22 @@
+ljud:
+  alias: "TTS test" 
+  sequence:
+    - service: media_player.sonos_snapshot
+      data_template:
+        entity_id: media_player.home
+    - service: tts.google_say
+      entity_id: media_player.home
+      data_template:
+        message: >-
+         {% if now().strftime("%H")|int < 12 %}
+           God morgon.
+         {% elif now().strftime("%H")|int < 18 %}
+          God eftermiddag.
+         {% else %}
+          God kväll.
+         {% endif %}
+         Det är just nu {{states.sensor.netatmo_ute_temperature.state|round}} grader utomhus och det blåser {{states.sensor.vind_nu.state}}m/s.
+    - delay: '00:00:07'
+    - service: media_player.sonos_restore
+      data_template:
+        entity_id: media_player.home

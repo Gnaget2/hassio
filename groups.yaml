@@ -1,0 +1,244 @@
+############################################################
+#
+# Home Assistant Groups
+#
+############################################################
+default_view:
+  view: yes
+  name: testhem
+  icon: mdi:home
+  entities:
+    - group.ovrigt
+    - group.Lampor2
+    - group.Lampor3
+    - group.familjen
+    - persistent_notification.1234
+
+
+weather_view:
+  view: yes
+  name: Weather
+  icon: mdi:weather-partlycloudy
+  entities:
+    - group.vader
+    - group.netatmo
+    - camera.Weather
+
+Media view:
+  view: yes
+  name: Media
+  icon: mdi:play-pause
+  entities:
+    - group.Harmony
+    - group.Spotify
+    - group.AppleTV
+    - media_player.home
+
+Automation_view:
+  view: yes
+  name: Automatiseringar
+  icon: mdi:home-automation
+  entities:
+    - group.all_automations
+    - group.System
+    - group.all_scripts
+    - group.all_switches
+
+Car:
+  name: HDU757
+  entities:
+    - lock.hdu757_lock
+    - switch.hdu757_heater
+    - device_tracker.volvo_hdu757
+    - binary_sensor.hdu757_brake_fluid
+    - binary_sensor.hdu757_bulbs
+    - binary_sensor.hdu757_doors
+    - binary_sensor.hdu757_service
+    - binary_sensor.hdu757_washer_fluid
+    - binary_sensor.hdu757_windows
+    - sensor.hdu757_fuel_amount
+    - sensor.hdu757_fuel_level
+    - sensor.hdu757_odometer
+    - sensor.hdu757_range
+
+Ovrigt:
+  control: hidden
+  name: Villa MiFi
+  entities:
+    - sensor.micke
+    - sensor.fia
+    - alarm_control_panel.drivhusslingan_alarm
+    - lock.huvudentre
+    - group.ytterbelysningen
+    - input_select.living_room_tv
+
+ 
+vader:
+  name: Klimat
+  entities:
+    -  sensor.sun_state
+    -  sensor.vardagsrummet_temperature
+    -  sensor.vardagsrummet_humidity
+    -  sensor.kok_temperature
+    
+netatmo:
+  name: Netatmo
+  entities:
+    -  sensor.netatmo_inne_co2
+    -  sensor.netatmo_inne_humidity
+    -  sensor.netatmo_inne_noise
+    -  sensor.netatmo_inne_pressure
+    -  sensor.netatmo_inne_temperature
+    -  sensor.netatmo_inne_wifi
+    -  sensor.netatmo_ute_battery
+    -  sensor.netatmo_ute_humidity
+    -  sensor.netatmo_ute_radio
+    -  sensor.netatmo_ute_temperature
+    -  sensor.netatmo_regn_rain
+    -  sensor.netatmo_regn_battery
+    -  sensor.netatmo_regn_radio
+    -  sensor.netatmo_vind_angle
+    -  sensor.netatmo_vind_battery
+    -  sensor.netatmo_vind_gust_angle
+    -  sensor.vind_byar
+    -  sensor.netatmo_vind_radio
+    -  sensor.vind_nu
+
+Lampor1:
+  name: Barnens rum
+  entities:
+    -  switch.liams_fonster
+    -  switch.mirandas_fonster
+    
+Lampor2:
+  name: Lampor Övervåningen
+  entities:
+    -  switch.liams_fonster
+    -  switch.mirandas_fonster
+    -  switch.sovrum
+    -  switch.allrum
+
+Lampor3:
+  name: Lampor Undervåningen
+  entities:
+    -  group.Lampor5
+    -  switch.hallen
+    -  switch.kok1
+    -  switch.kok2
+    -  light.matbord
+    -  light.tv_bank
+    -  switch.under_trappan
+    -  light.tradfri_bulb_e27_opal_1000lm
+    -  light.tv
+    -  switch.VrumTAK
+    -  light.fonster_vrum
+    
+Lampor4:
+  name: Lampor godnatt
+  entities:
+    -  switch.hallen
+    -  switch.under_trappan
+    -  switch.fonster_bak1
+    -  switch.fonster_bak2    
+    -  switch.kok1
+    -  switch.kok2
+        
+    
+Lampor5:
+  name: Lampor fönster undervåningen
+  entities:
+    -  switch.fonster_gangvag
+    -  switch.fonster_kok
+    -  switch.fonster_bak1
+    -  switch.fonster_bak2
+    
+Lampor6:
+  name: Välkommen hem
+  entities:
+    -  switch.Hallen
+    -  switch.under_trappan
+    
+
+Lampor7:
+  name: Lampor film
+  entities:
+    -  light.tv_bank
+    -  light.matbord
+    -  light.tv
+    -  light.fonster_vrum
+    
+Lampor8:
+  name: Alla Lampor
+  entities:
+    -  switch.hallen
+    -  switch.under_trappan
+    -  switch.fonster_bak1
+    -  switch.fonster_bak2
+    -  switch.kok1
+    -  switch.kok2
+    -  switch.fonster_gangvag
+    -  switch.fonster_kok
+    -  switch.liams_fonster
+    -  switch.mirandas_fonster
+    -  switch.sovrum
+    -  switch.allrum
+    -  switch.ute_entre
+    -  switch.ute_entreslinga
+    -  switch.ute_trad_baksida
+    
+UteUpp:
+  name: Fasad Uppåt
+  entities:
+    -  light.ute_framu
+    -  light.ute_gangvag_upp
+    -  light.ute_uppfart_upp
+    -  light.ute_bak1_upp
+    -  light.ute_bak2_upp
+  
+  
+UteNer:
+  name: Fasad Neråt
+  entities:
+    -  light.ute_forad_ner
+    -  light.ute_framn
+    -  light.ute_gangvag_ner
+    -  light.ute_uppfart_ner
+    -  light.ute_bak1_ner
+    -  light.ute_bak2_ner
+
+
+
+
+ytterbelysningen:
+  name: Ytterbelysningen
+  entities:
+    -  switch.ute_entre
+    -  switch.ute_entreslinga
+    -  switch.ute_trad_baksida
+    -  group.UteUpp
+    -  group.UteNer
+    
+AppleTV:
+  name: Apple TV
+  entities:
+    -  media_player.apple_tv
+    
+Spotify:
+  name: Spotify
+  entities:
+    -  media_player.spotify
+
+
+System:
+  name: Systeminfo
+  entities:
+    -  sensor.disk_used_home 
+    -  sensor.uptime
+    -  sensor.ram_used
+    -  sensor.cpu_used
+     
+Harmony:
+  name: Harmony Ultimate Remote
+  entities:
+   - input_text.harmony_remote
+   - input_select.living_room_tv

@@ -1,0 +1,14 @@
+light.*:
+  custom_ui_state_card: state-card-custom-ui
+  hidden: {}
+  state_card_mode: single-line
+  stretch_slider: true
+  hide_control: true
+  show_last_changed: false
+  pin: true
+  slider_theme:
+    min: 0
+    max: 255
+    pin: true
+    off_when_min: true
+    report_when_not_changed: false

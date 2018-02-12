@@ -1,0 +1,18 @@
+###################################
+## Meddela på väg hem
+##
+## last changed: 2018-01-04
+###################################
+- alias: '026: Tänd TV'
+  id: '026'
+  trigger:
+    - platform: state
+      entity_id: remote.hub1
+      to: 'on'
+  condition: []
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.tv
+        
+        

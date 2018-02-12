@@ -1,0 +1,18 @@
+temp:
+  speech:
+    type: plain
+    text: current temperature is {{ states.sensor.netatmo_ute_temperature.state|round}} degrees.
+    
+wind:
+  speech:
+    type: plain
+    text: current wind speed is {{ states.sensor.vind_nu.state|round}} m/s
+    
+RunScriptIntent:
+  action:
+    service: script.turn_on
+    data_template:
+      entity_id: script.{{ Script | replace(" ", "_") }}
+  speech:
+    type: plain
+    text: OK

@@ -1,0 +1,17 @@
+###################################
+## auto Uppdatera harmony input select uppdaterad av någon annan än HA
+##
+## last changed: 2017-11-06
+###################################
+- alias: '015: Update input select'
+  id: '015'
+  trigger:
+    platform: state
+    entity_id: remote.Hub1
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.living_room_tv
+      option: '{{ states.remote.Hub1.attributes.current_activity }}'
+
+    

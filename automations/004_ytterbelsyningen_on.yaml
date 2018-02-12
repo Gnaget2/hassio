@@ -1,0 +1,19 @@
+###################################
+## auto controllerar ytterbelsyningen 
+##
+## last changed: 2017-11-06
+###################################
+- alias: '004: Ytterbelysningen on'
+  id: '004'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: -00:20:00
+  condition: []
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: group.ytterbelysningen
+    - service: light.turn_on
+      data:
+        entity_id: group.ytterbelysningen        
