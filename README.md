@@ -3,7 +3,7 @@ My running hassio config
 
 ### Running Hassio 0.62.1 on a Raspberry Pi3b with a 16 gb sandisk ultra class10 card
 * Using Homebridge to get support for Homekit and Siri
-* Using Home Assistant Cloud for Alexa
+* Using alexa skill to integrate alexa to Home Assistant
 
 ## Hubs
 * 433 mhz: RFXTRX433e
@@ -20,6 +20,8 @@ My running hassio config
 * Harmony hub and ultimate remote
 * Verisure alarm components
 * Yale doorman integrated to Verisure
+* VOC
+* Netatmo weather station with rain and wind sensors
 
 
 ### Presence-detection
