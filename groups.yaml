@@ -139,7 +139,7 @@ Lampor4:
     -  switch.hallen
     -  switch.under_trappan
     -  switch.fonster_bak1
-    -  switch.fonster_bak2    
+    -  switch.fonster_bak2
     -  switch.kok1
     -  switch.kok2
         
@@ -232,10 +232,10 @@ Spotify:
 System:
   name: Systeminfo
   entities:
-    -  sensor.disk_used_home 
+    -  sensor.disk_use_percent_home
     -  sensor.uptime
-    -  sensor.ram_used
-    -  sensor.cpu_used
+    -  sensor.memory_use_percent
+    -  sensor.processor_use
      
 Harmony:
   name: Harmony Ultimate Remote
