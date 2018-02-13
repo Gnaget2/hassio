@@ -75,6 +75,7 @@ history:
       - binary_sensor.hdu757_service
       - binary_sensor.hdu757_washer_fluid
       - binary_sensor.hdu757_windows
+      - sensor.hdu757_fuel_consumption
       - input_select.living_room_tv
       - media_player.apple_tv
       - media_player.spotify
@@ -118,12 +119,18 @@ history:
       - sensor.netatmo_vind_battery
       - sensor.netatmo_vind_gust_angle
       - sensor.netatmo_vind_radio
-      - sensor.disk_used_home 
+      - sensor.disk_use_percent_home
       - sensor.uptime
-      - sensor.ram_used
-      - sensor.cpu_used
+      - sensor.memory_use_percent
+      - sensor.processor_use
       - sensor.tradfri_remote_control
       - sensor.tradfri_motion_sensor
+      - sensor.netatmo_vind_strength
+      - sensor.netatmo_vind_gust_strength
+      - sensor.danell_battery_state
+      - sensor.danell_battery_level
+      - sensor.inne_stats_mean
+      - sensor.kok_stats_mean
 
 # View all events in a logbook and what to exclude
 logbook:
@@ -179,12 +186,17 @@ recorder:
       - sensor.yr_precipitation
       - sensor.yr_pressure
       - sensor.yr_humidity
-      - sensor.disk_used_home 
+      - sensor.disk_use_percent_home
       - sensor.uptime
-      - sensor.ram_used
-      - sensor.cpu_used
+      - sensor.memory_use_percent
+      - sensor.processor_use
       - sensor.tradfri_remote_control
       - sensor.tradfri_motion_sensor
+      - sensor.netatmo_vind_strength
+      - sensor.netatmo_vind_gust_strength
+      - sensor.danell_battery_state
+      - sensor.danell_battery_level
+      - sensor.hdu757_fuel_consumption
 # Track the sun
 sun:
 #Enables IOS components and tracking

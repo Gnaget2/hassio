@@ -121,3 +121,7 @@ switch.ute_trad_baksida:
 sensor.disk_used_home:
   friendly_name: Disk used
 script.ljud: {}
+sensor.danell_battery_level:
+  hidden: true
+sensor.danell_battery_state:
+  hidden: true
