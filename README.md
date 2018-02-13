@@ -38,7 +38,7 @@ My running hassio config
 
 
 ## My gui
-<img src="https://github.com/Gnaget2/hassio/blob/master/Images/Home.PNG" alt="Home Assistant" />
-<img src="https://github.com/Gnaget2/hassio/blob/master/Images/klimat.PNG" alt="Home Assistant" />
-<img src="https://github.com/Gnaget2/hassio/blob/master/Images/play.PNG" alt="Home Assistant" />
-<img src="https://github.com/Gnaget2/hassio/blob/master/Images/heater.PNG" alt="Home Assistant" />
+<img src="https://github.com/Gnaget2/hassio/blob/master/Images/home.PNG" alt="Home" />
+<img src="https://github.com/Gnaget2/hassio/blob/master/Images/klimat.PNG" alt="Klimat" />
+<img src="https://github.com/Gnaget2/hassio/blob/master/Images/play.PNG" alt="Play" />
+<img src="https://github.com/Gnaget2/hassio/blob/master/Images/heater.PNG" alt="Heater" />
