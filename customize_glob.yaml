@@ -1,8 +1,6 @@
 light.*:
   custom_ui_state_card: state-card-custom-ui
-  hidden: {}
   state_card_mode: single-line
-  stretch_slider: true
   hide_control: true
   show_last_changed: false
   pin: true
