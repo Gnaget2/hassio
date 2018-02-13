@@ -212,14 +212,7 @@ device_tracker:
     hosts: 
       - 192.168.1.201
       - 192.168.1.202
-      
-influxdb:
-  host: 192.168.1.235
-  include:
-    entities:
-       - sensor.inne_stats_mean
-       - sensor.kok_stats_mean
-  
+
 media_player:
   - platform: spotify
     client_id: !secret spotify_id
