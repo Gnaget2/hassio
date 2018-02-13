@@ -67,7 +67,7 @@ Ovrigt:
   entities:
     - sensor.micke
     - sensor.fia
-    - alarm_control_panel.drivhusslingan_alarm
+    - !secret verisure_alarm
     - lock.huvudentre
     - group.ytterbelysningen
     - input_select.living_room_tv
