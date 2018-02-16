@@ -7,7 +7,7 @@
   id: '028'
   trigger:
     - platform: time
-      minutes: '/10'
+      minutes: '/30'
       seconds: 00
   condition: []
   action:
