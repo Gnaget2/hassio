@@ -43,7 +43,6 @@ http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  base_url: secret! http_baseurl
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
   trusted_networks:
