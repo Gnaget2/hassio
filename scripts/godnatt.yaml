@@ -1,0 +1,13 @@
+godnight:
+  alias: "godnatt" 
+  sequence:
+    - service: remote.turn_on
+      data:
+        entity_id: remote.Hub1
+        activity: -1  
+    - service: switch.turn_off
+      data:
+        entity_id: group.Lampor4
+    - service: light.turn_off
+      data:
+        entity_id: group.Lampor7
