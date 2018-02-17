@@ -3,7 +3,6 @@ sun.sun:
   friendly_name: Solens läge
 sensor.kok_temperature:
   friendly_name: KÖK
-  homebridge_hidden: false
 sensor.yr_symbol:
   friendly_name: Väder
 sensor.yr_wind_speed:
@@ -109,7 +108,6 @@ light.fonster_vrum:
   assumed_state: true
 group.all_automations:
   hidden: false
-  homebridge_hidden: true
 group.ytterbelysningen:
   icon: mdi:alarm-light
 switch.fonster_kok:
@@ -126,3 +124,5 @@ sensor.danell_battery_level:
   hidden: true
 sensor.danell_battery_state:
   hidden: true
+script.godnight:
+  homebridge_visible: true
