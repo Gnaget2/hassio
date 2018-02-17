@@ -120,7 +120,8 @@ switch.ute_trad_baksida:
   icon: mdi:alarm-light
 sensor.disk_used_home:
   friendly_name: Disk used
-script.ljud: {}
+script.ljud:
+  homebridge_visible: true
 sensor.danell_battery_level:
   hidden: true
 sensor.danell_battery_state:
