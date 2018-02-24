@@ -82,3 +82,15 @@ media_player.apple_tv:
 remote.apple_tv:
   platform: apple_tv
   unique_id: 1d7564faef0d2fbafaf560a29ef679f803dc0127079e4d2fe41d28988a8e49fd
+light.bankskiva:
+  platform: hue
+  unique_id: 00:17:88:01:02:9d:49:d7-0b
+light.diskbank:
+  platform: hue
+  unique_id: 00:17:88:01:03:f4:e6:18-0b
+light.kok2_1:
+  platform: hue
+  unique_id: 00:17:88:01:02:ab:02:8d-0b
+light.kok2_2:
+  platform: hue
+  unique_id: 00:17:88:01:02:ab:10:0f-0b

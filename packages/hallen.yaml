@@ -1,0 +1,191 @@
+##################################################################################################
+# Hallen smart buttons                                                                           #
+# Version 1.0.0 last changed 2018-02-20                                                          #
+# Created for and tested with Home Assistant Hassio version 0.63.3                               #
+# Creator Mikael Danell SHG                                                                      #
+##################################################################################################
+
+# Automation section
+automation:
+
+#
+  - alias: "Left button 1"
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: {"state": "on", "entity_id": "switch.hall_b1"}
+    condition:
+    - condition: state
+      entity_id: input_boolean.hallen_left1
+      state: 'off'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.hallen_left1
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.hallen_night_left1, input_boolean.hallen_night_left2
+      - service: scene.turn_on
+        entity_id: scene.light1
+
+  - alias: "Left button 2"
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: {"state": "on", "entity_id": "switch.hall_b1"}
+    condition:
+    - condition: state
+      entity_id: input_boolean.hallen_left1
+      state: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.hallen_left2
+      - service: scene.turn_on
+        entity_id: scene.light2
+
+  - alias: "Left button 3"
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: {"state": "on", "entity_id": "switch.hall_b1"}
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.hallen_left2
+          state: 'on'
+        - condition: state
+          entity_id: input_boolean.hallen_left3
+          state: 'off'
+    action:
+      service: homeassistant.turn_on
+      entity_id: input_boolean.hallen_left3
+      
+  - alias: "Left button night 1"
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: {"state": "off", "entity_id": "switch.hall_b1"}
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.hallen_night_left1
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.hallen_left1, input_boolean.hallen_left2, input_boolean.hallen_left3
+      - service: scene.turn_on
+        entity_id: scene.light1_off
+
+  - alias: "Left button night 2"
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: {"state": "off", "entity_id": "switch.hall_b1"}
+    condition:
+    - condition: state
+      entity_id: input_boolean.hallen_night_left1
+      state: 'on'
+    action:
+      service: homeassistant.turn_on
+      entity_id: input_boolean.hallen_night_left2
+
+
+  - alias: "Right button"
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: {"state": "on", "entity_id": "switch.hall_b2"}
+    action:
+      service: homeassistant.turn_on
+      entity_id: input_boolean.hallen_right1
+
+
+# Bolean section
+input_boolean:
+  hallen_left1:
+    name: Day Mode 1
+    initial: off
+    icon: mdi:numeric-1-box-outline
+  hallen_left2:
+    name: Day Mode 2
+    initial: off
+    icon: mdi:numeric-2-box-outline
+  hallen_left3:
+    name: Day Mode 3
+    initial: off
+    icon: mdi:numeric-3-box-outline
+  hallen_right1:
+    name: Day Mode 1
+    initial: off
+    icon: mdi:numeric-1-box-outline
+  hallen_right2:
+    name: Day Mode 2
+    initial: off
+    icon: mdi:numeric-2-box-outline
+  hallen_right3:
+    name: Day Mode 3
+    initial: off
+    icon: mdi:numeric-3-box-outline
+  hallen_night_left1:
+    name: Night Mode 1
+    initial: off
+    icon: mdi:numeric-1-box
+  hallen_night_left2:
+    name: Night Mode 2
+    initial: off
+    icon: mdi:numeric-2-box
+
+
+# Group section
+group:
+
+  button_view:
+    view: yes
+    name: button
+    icon: mdi:remote
+    entities:
+      - group.button_controls_left
+      - group.button_controls_right
+
+
+  button_controls_left:
+    control: hidden
+    name: "knappläge vänster"
+    entities:
+      - switch.hall_b1
+      - automation.left_button
+      - input_boolean.hallen_left1
+      - input_boolean.hallen_left2
+      - input_boolean.hallen_left3
+      - input_boolean.hallen_night_left1
+      - input_boolean.hallen_night_left2
+
+
+  button_controls_right:
+    control: hidden
+    name: "knappläge höger"
+    entities:
+      - switch.hall_b2
+      - automation.right_button
+      - input_boolean.hallen_right1
+      - input_boolean.hallen_right2
+      - input_boolean.hallen_right3
+
+# Script section
+script:
+# 
+  button_left_on:
+    sequence:
+    - service: switch.turn_on
+      entity_id: switch.motorvarmaren
+    - service: automation.turn_on
+      entity_id: automation.heater_off
+      
+  button_right_on:
+    sequence:
+    - service: switch.turn_on
+      entity_id: switch.motorvarmaren
+    - service: automation.turn_on
+      entity_id: automation.heater_off

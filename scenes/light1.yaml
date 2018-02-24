@@ -1,0 +1,11 @@
+  - name: light1
+    entities:
+      light.matbord:
+        state: on
+        brightness: 50
+      light.tv_bank:
+        state: on
+        brightness: 50
+      light.fonster_vrum:
+        state: on
+        brightness: 50

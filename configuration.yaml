@@ -246,7 +246,7 @@ hue:
       allow_hue_groups: false
 light:
   - platform: rfxtrx
-    automatic_add: false
+    automatic_add: true
     devices:
       0b1100000385a35901000070:
         name: Matbord
@@ -254,7 +254,7 @@ light:
 # All switches and settings
 switch:
   platform: rfxtrx
-  automatic_add: false
+  automatic_add: true
   signal_repetitions: 3
   devices:
     0b1100000000cfa602010f60:
@@ -297,6 +297,14 @@ switch:
       name: Ljussensor
     0b11000234bc0cfe04010f70:
       name: Router
+    0b1100040009ac5202010f70:
+      name: Hall B1
+      fire_event: true
+    0b11000b0009ac5201010f70:
+      name: Hall B2
+      fire_event: true
+    0b11000166bc0cfe07010f70:
+      name: Bänskiva
 
 #All sensors
 sensor:
@@ -429,6 +437,6 @@ netatmo:
 group: !include groups.yaml
 automation: !include_dir_merge_list automations
 zone: !include zones.yaml
-scene: !include scene.yaml
+scene: !include_dir_merge_list scenes
 script: !include_dir_merge_named scripts
 intent_script: !include_dir_merge_named alexa_intents

@@ -1,0 +1,8 @@
+  - name: light1_off
+    entities:
+      light.tv_bank:
+        state: off
+      light.fonster_vrum:
+        state: off
+      light.matbord:
+        state: off

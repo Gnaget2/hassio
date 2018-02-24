@@ -1,0 +1,6 @@
+  - name: light3
+    entities:
+      light.tv_bank:
+        state: off
+      light.fonster_vrum:
+        state: off

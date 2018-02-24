@@ -132,6 +132,8 @@ Lampor3:
     -  light.tv
     -  switch.VrumTAK
     -  light.fonster_vrum
+    -  light.bankskiva
+    -  light.diskbank
     
 Lampor4:
   name: Lampor godnatt
