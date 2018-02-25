@@ -1,0 +1,119 @@
+##################################################################################################
+# records package                                                                                #
+# Version 1.0.  last changed 2018-02-25                                                          #
+# Created for and tested with Home Assistant Hassio version 0.63.3                               #
+# Creator Mikael Danell SHG                                                                      #
+##################################################################################################
+
+
+
+# Input section
+
+input_number:
+  box1:
+    name: Cold record
+    min: -30
+    max: 45
+    step: 0.1
+    mode: box
+  box2:
+    name: heat record
+    min: -30
+    max: 45
+    step: 0.1
+    mode: box
+  box3:
+    name: wind record
+    min: 0
+    max: 45
+    step: 0.1
+    mode: box
+  box4:
+    name: rain record
+    min: 0
+    max: 100
+    step: 0.1
+    mode: box
+
+# Sensor section
+sensor:
+  - platform: template
+    sensors:
+      coldrecord:
+        friendly_name: 'köldrekord'
+        value_template: >-
+         {% if states.sensor.netatmo_ute_temperature.state|int < states.input_number.box1.state|int %}
+           Yes
+         {% else %}
+           No
+         {% endif %}
+  - platform: template
+    sensors:
+      heatrecord:
+        friendly_name: 'Värmerekord'
+        value_template: >-
+         {% if states.sensor.netatmo_ute_temperature.state|int > states.input_number.box2.state|int %}
+           Yes
+         {% else %}
+           no
+         {% endif %}
+
+
+# Group section
+group:
+
+  testing_view:
+    view: yes
+    name: TEST
+    icon: mdi:test-tube
+    entities:
+      - group.testgrupp
+# option to show the automations and scripts that controls the heater 
+      - group.test_controls
+
+  testgrupp:
+    control: hidden
+    name: "Test"
+    entities:
+      - input_number.box1
+      - input_number.box2
+      - input_number.box3
+      - input_number.box4
+
+  test_controls:
+    control: hidden
+    name: "styrning"
+    entities:
+      - script.test_on
+      - sensor.coldrecord
+      - sensor.heatrecord
+      - automation.new_cold_record
+      - automation.new_heat_record
+
+# Automation section
+automation:
+
+#
+  - alias: "New cold record"
+    initial_state: true
+    trigger:
+      - platform: state
+        entity_id: sensor.coldrecord
+        to: 'Yes'
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.box1
+        value: "{{ states('sensor.netatmo_ute_temperature') | int }}"
+        
+  - alias: "New heat record"
+    initial_state: true
+    trigger:
+      - platform: state
+        entity_id: sensor.heatrecord
+        to: 'Yes'
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.box2
+        value: "{{ states('sensor.netatmo_ute_temperature') | int }}"

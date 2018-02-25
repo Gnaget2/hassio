@@ -193,7 +193,6 @@ input_number:
   heater_hour:
     name: Timmar
     icon: mdi:timer
-    initial: 6
     min: 0
     max: 23
     step: 1
@@ -201,7 +200,6 @@ input_number:
   heater_minutes:
     name: Minuter
     icon: mdi:timer
-    initial: 30
     min: 0
     max: 55
     step: 5
