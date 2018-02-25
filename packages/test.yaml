@@ -104,7 +104,7 @@ automation:
       - service: input_number.set_value
         data_template:
           entity_id: input_number.box1
-          value: "{{ states('sensor.netatmo_ute_temperature')}}"
+          value: "{{ states.sensor.netatmo_ute_temperature.state }}"
       - service: notify.ios_danell
         data:
           message: "Nytt k\xF6ldrekord \xE4r nu {{ states.sensor.netatmo_ute_temperature.state }}"
@@ -120,7 +120,7 @@ automation:
       - service: input_number.set_value
         data_template:
           entity_id: input_number.box2
-          value: "{{ states('sensor.netatmo_ute_temperature')}}"
+          value: "{{ states.sensor.netatmo_ute_temperature.state }}"
       - service: notify.ios_danell
         data:
           message: "Nytt v\xE4rmerekord \xE4r nu {{ states.sensor.netatmo_ute_temperature.state }}"
