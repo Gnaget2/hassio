@@ -101,10 +101,14 @@ automation:
         entity_id: sensor.coldrecord
         to: 'Yes'
     action:
-      service: input_number.set_value
-      data_template:
-        entity_id: input_number.box1
-        value: "{{ states('sensor.netatmo_ute_temperature') | int }}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.box1
+          value: "{{ states('sensor.netatmo_ute_temperature') | int }}"
+      - service: notify.ios_danell
+        data:
+          message: "Nytt k\xF6ldrekord \xE4r nu {{ states.sensor.netatmo_ute_temperature.state }}"
+          title: "Nytt rekord"
         
   - alias: "New heat record"
     initial_state: true
@@ -117,3 +121,7 @@ automation:
       data_template:
         entity_id: input_number.box2
         value: "{{ states('sensor.netatmo_ute_temperature') | int }}"
+      - service: notify.ios_danell
+        data:
+          message: "Nytt v\xE4rmerekord \xE4r nu {{ states.sensor.netatmo_ute_temperature.state }}"
+          title: "Nytt rekord"
