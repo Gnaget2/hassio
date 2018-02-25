@@ -117,10 +117,10 @@ automation:
         entity_id: sensor.heatrecord
         to: 'Yes'
     action:
-      service: input_number.set_value
-      data_template:
-        entity_id: input_number.box2
-        value: "{{ states('sensor.netatmo_ute_temperature') | int }}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.box2
+          value: "{{ states('sensor.netatmo_ute_temperature') | int }}"
       - service: notify.ios_danell
         data:
           message: "Nytt v\xE4rmerekord \xE4r nu {{ states.sensor.netatmo_ute_temperature.state }}"
