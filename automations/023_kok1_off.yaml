@@ -13,8 +13,8 @@
         minutes: 1
   condition: []
   action:
-    - service: switch.turn_off
+    - service: light.turn_on
       data:
-        entity_id: switch.kok1
-        
-        
+        entity_id: group.Lampor9
+        brightness_pct: 40
+        transition: 10

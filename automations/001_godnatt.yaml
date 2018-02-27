@@ -16,10 +16,15 @@
   condition:
     - condition: time
       after: '22:00'
+    - condition: state
+      entity_id: remote.hub1
+      state: 'off'
   action:
     - service: switch.turn_off
       data:
         entity_id: group.Lampor4
     - service: light.turn_off
       data:
-        entity_id: group.Lampor7
+        entity_id:
+          - group.Lampor7
+          - group.Lampor9

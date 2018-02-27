@@ -72,7 +72,6 @@ Ovrigt:
     - group.ytterbelysningen
     - input_select.living_room_tv
 
- 
 vader:
   name: Klimat
   entities:
@@ -144,8 +143,7 @@ Lampor4:
     -  switch.fonster_bak2
     -  switch.kok1
     -  switch.kok2
-        
-    
+
 Lampor5:
   name: Lampor fönster undervåningen
   entities:
@@ -153,13 +151,13 @@ Lampor5:
     -  switch.fonster_kok
     -  switch.fonster_bak1
     -  switch.fonster_bak2
-    
+
 Lampor6:
   name: Välkommen hem
   entities:
     -  switch.Hallen
     -  switch.under_trappan
-    
+
 
 Lampor7:
   name: Lampor film
@@ -187,7 +185,13 @@ Lampor8:
     -  switch.ute_entre
     -  switch.ute_entreslinga
     -  switch.ute_trad_baksida
-    
+
+Lampor9:
+  name: kokfonster
+  entities:
+    -  light.diskbank
+    -  light.bankskiva
+
 UteUpp:
   name: Fasad Uppåt
   entities:
@@ -196,8 +200,7 @@ UteUpp:
     -  light.ute_uppfart_upp
     -  light.ute_bak1_upp
     -  light.ute_bak2_upp
-  
-  
+
 UteNer:
   name: Fasad Neråt
   entities:
