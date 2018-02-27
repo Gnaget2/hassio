@@ -1,7 +1,7 @@
 # Hassio
 My running hassio config
 
-### Running Hassio 0.63.1 on a Raspberry Pi3b with a 16 gb sandisk ultra class10 card
+### Running Hassio 0.64.0 on a Raspberry Pi3b with a 32 gb sandisk ultra class10 card
 * Using Homebridge to get support for Homekit and Siri
 * Using alexa skill to integrate alexa to Home Assistant
 
