@@ -1,96 +1,140 @@
 light.hue_white_lamp_3:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:87:af:4b-0b
 light.ute_bak2_ner:
+  name:
   platform: hue
   unique_id: 00:17:88:01:03:5a:c6:33-0b
 light.ute_bak2_upp:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:b9:f9:2b-0b
 light.ute_gangvag_upp:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:b9:f1:87-0b
 light.ute_bak1_upp:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:b9:d2:5e-0b
 light.ute_bak1_ner:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:b9:d2:cf-0b
 light.ute_uppfart_ner:
+  name:
   platform: hue
   unique_id: 00:17:88:01:03:5a:c9:c8-0b
 light.hue_white_lamp_2:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:87:ad:c0-0b
 light.ute_gangvag_ner:
+  name:
   platform: hue
   unique_id: 00:17:88:01:03:5a:c9:ff-0b
 light.ute_uppfart_upp:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:b9:d3:95-0b
 light.vrum1:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:ab:17:f2-0b
 light.tv_bank:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:ea:2f:1f-0b
 light.tv:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:9c:91:79-0b
 light.vrum3:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:ab:10:1d-0b
 light.ute_framn:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:b9:fe:7c-0b
 light.vrum2:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:ab:11:33-0b
 light.ute_forad_ner:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:ab:10:14-0b
 light.hallen_2:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:ab:16:b8-0b
 light.ute_framu:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:b9:f1:ea-0b
 light.hallen_3:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:9e:3d:b4-0b
 light.hallen_1:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:9e:43:2e-0b
 media_player.home:
+  name:
   platform: sonos
   unique_id: RINCON_7828CA04FCA201400
 sensor.danell_battery_state:
+  name:
   platform: ios
   unique_id: state_danell
 sensor.sofias_iphone_battery_state:
+  name:
   platform: ios
   unique_id: state_sofias_iphone
 sensor.sofias_iphone_battery_level:
+  name:
   platform: ios
   unique_id: level_sofias_iphone
 sensor.danell_battery_level:
+  name:
   platform: ios
   unique_id: level_danell
 media_player.apple_tv:
+  name:
   platform: apple_tv
   unique_id: 1d7564faef0d2fbafaf560a29ef679f803dc0127079e4d2fe41d28988a8e49fd
 remote.apple_tv:
+  name:
   platform: apple_tv
   unique_id: 1d7564faef0d2fbafaf560a29ef679f803dc0127079e4d2fe41d28988a8e49fd
 light.bankskiva:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:9d:49:d7-0b
 light.diskbank:
+  name:
   platform: hue
   unique_id: 00:17:88:01:03:f4:e6:18-0b
 light.kok2_1:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:ab:02:8d-0b
 light.kok2_2:
+  name:
   platform: hue
   unique_id: 00:17:88:01:02:ab:10:0f-0b
+binary_sensor.door_window_sensor_158d000224aa0d:
+  name:
+  platform: xiaomi_aqara
+  unique_id: status158d000224aa0d
+sensor.illumination_7811dcb8d388:
+  name:
+  platform: xiaomi_aqara
+  unique_id: illumination7811dcb8d388
+light.gateway_light_7811dcb8d388:
+  name:
+  platform: xiaomi_aqara
+  unique_id: rgb7811dcb8d388

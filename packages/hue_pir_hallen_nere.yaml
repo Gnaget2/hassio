@@ -1,0 +1,84 @@
+##################################################################################################
+# HUE PIR hallen package                                                                         #
+# Version 1.0.  last changed 2018-03-04                                                          #
+# Created for and tested with Home Assistant Hassio version 0.63.3                               #
+# Creator Mikael Danell IQhemmet.se                                                              #
+##################################################################################################
+
+
+
+
+
+# Sensor section
+sensor:
+  - platform: template
+    sensors:
+      hass_lux:
+        friendly_name: 'HASS LUX'
+        value_template: "{{states.sensor.hass_motion_sensor.attributes.lux}}"
+        unit_of_measurement: lux
+        icon_template: mdi:lightbulb-on-outline
+      hass_dark:
+        friendly_name: 'HASS dark'
+        value_template: "{{states.sensor.hass_motion_sensor.attributes.dark}}"
+        icon_template: mdi:lightbulb-on-outline
+      hass_motion:
+        friendly_name: 'HASS motion'
+        value_template: "{{states.sensor.hass_motion_sensor.state}}"
+        icon_template: mdi:run-fast
+      hass_temp:
+        friendly_name: 'HASS temp'
+        value_template: "{{states.sensor.hass_motion_sensor.attributes.temperature}}"
+        unit_of_measurement: °C
+        icon_template: mdi:thermometer
+      hallen_lux:
+        friendly_name: 'Hallen LUX'
+        value_template: "{{states.sensor.dummy_motion_sensor.attributes.lux}}"
+        unit_of_measurement: lux
+        icon_template: mdi:lightbulb-on-outline
+      hallen_dark:
+        friendly_name: 'Hallen dark'
+        value_template: "{{states.sensor.dummy_motion_sensor.attributes.dark}}"
+        icon_template: mdi:lightbulb-on-outline
+      hallen_motion:
+        friendly_name: 'Hallen motion'
+        value_template: "{{states.sensor.dummy_motion_sensor.state}}"
+        icon_template: mdi:run-fast
+      hallen_temp:
+        friendly_name: 'Hallen temp'
+        value_template: "{{states.sensor.dummy_motion_sensor.attributes.temperature}}"
+        unit_of_measurement: °C
+        icon_template: mdi:thermometer
+
+
+
+# Group section
+group:
+
+  testing_PIR_view:
+    view: yes
+    name: TEST
+    icon: mdi:run-fast
+    entities:
+      - group.hassPIRgrupp
+      - group.testPIRgrupp
+      
+  testPIRgrupp:
+    control: hidden
+    name: "PIR Hallen"
+    entities:
+      - sensor.hallen_lux
+      - sensor.hallen_dark
+      - sensor.hallen_motion
+      - sensor.hallen_temp
+    
+  hassPIRgrupp:
+    control: hidden
+    name: "PIR HASS"
+    entities:
+      - sensor.hass_lux
+      - sensor.hass_dark
+      - sensor.hass_motion
+      - sensor.hass_temp
+
+

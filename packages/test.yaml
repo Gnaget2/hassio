@@ -42,7 +42,7 @@ sensor:
       coldrecord:
         friendly_name: 'köldrekord'
         value_template: >-
-         {% if states.sensor.netatmo_ute_temperature.state|int < states.input_number.box1.state|int %}
+         {% if states.sensor.netatmo_ute_temperature.state|float < states.input_number.box1.state|float %}
            Yes
          {% else %}
            No
@@ -52,7 +52,7 @@ sensor:
       heatrecord:
         friendly_name: 'Värmerekord'
         value_template: >-
-         {% if states.sensor.netatmo_ute_temperature.state|int > states.input_number.box2.state|int %}
+         {% if states.sensor.netatmo_ute_temperature.state|float > states.input_number.box2.state|float %}
            Yes
          {% else %}
            No
