@@ -1,0 +1,30 @@
+###################################
+## belyningen hallen on
+##
+## last changed: 2018-03-30
+###################################
+- alias: '029: belysning hallen on'
+  id: '029'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.drivhusslingan_alarm
+      to: 'disarmed'
+    - platform: state
+      entity_id: sensor.hallen_dark
+      to: True
+  condition:
+    - condition: time
+      after: '22:00'
+    - condition: state
+      entity_id: remote.hub1
+      state: 'off'
+    - platform: state
+      entity_id: alarm_control_panel.drivhusslingan_alarm
+      state: 'disarmed'
+    - platform: state
+      entity_id: sensor.hallen_dark
+      state: True
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: group.Lampor6

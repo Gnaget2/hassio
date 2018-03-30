@@ -14,4 +14,4 @@
     - service: light.turn_on
       data:
         entity_id: light.matbord
-        brightness_pct: 80       
+        brightness_pct: 80

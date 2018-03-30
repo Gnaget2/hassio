@@ -1,0 +1,18 @@
+###################################
+## belsyningen i hallen off
+##
+## last changed: 2018-03-30
+###################################
+- alias: '030: belysning hallen on'
+  id: '030'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.drivhusslingan_alarm
+      to: 'armed_away'
+    - platform: state
+      entity_id: sensor.hallen_dark
+      to: False
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: group.Lampor6

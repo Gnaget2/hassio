@@ -13,4 +13,4 @@
   action:
     - service: switch.turn_on
       data:
-        entity_id: group.Lampor2     
+        entity_id: group.Lampor2
