@@ -126,15 +126,23 @@ light.kok2_2:
   name:
   platform: hue
   unique_id: 00:17:88:01:02:ab:10:0f-0b
-binary_sensor.door_window_sensor_158d000224aa0d:
+binary_sensor.door_window_sensor_Entre:
   name:
   platform: xiaomi_aqara
   unique_id: status158d000224aa0d
-sensor.illumination_7811dcb8d388:
+sensor.illumination_gw:
   name:
   platform: xiaomi_aqara
   unique_id: illumination7811dcb8d388
-light.gateway_light_7811dcb8d388:
+light.Xiaomi_GW:
   name:
   platform: xiaomi_aqara
   unique_id: rgb7811dcb8d388
+binary_sensor.switch_button1:
+  name:
+  platform: xiaomi_aqara
+  unique_id: status158d00022449f9
+binary_sensor.pir_1:
+  name:
+  platform: xiaomi_aqara
+  unique_id: status158d0001e7e144

@@ -33,20 +33,20 @@ sensor:
         icon_template: mdi:thermometer
       hallen_lux:
         friendly_name: 'Hallen LUX'
-        value_template: "{{states.sensor.dummy_motion_sensor.attributes.lux}}"
+        value_template: "{{states.sensor.motion_hallen.attributes.lux}}"
         unit_of_measurement: lux
         icon_template: mdi:lightbulb-on-outline
       hallen_dark:
         friendly_name: 'Hallen dark'
-        value_template: "{{states.sensor.dummy_motion_sensor.attributes.dark}}"
+        value_template: "{{states.sensor.motion_hallen.attributes.dark}}"
         icon_template: mdi:lightbulb-on-outline
       hallen_motion:
         friendly_name: 'Hallen motion'
-        value_template: "{{states.sensor.dummy_motion_sensor.state}}"
+        value_template: "{{states.sensor.motion_hallen.state}}"
         icon_template: mdi:run-fast
       hallen_temp:
         friendly_name: 'Hallen temp'
-        value_template: "{{states.sensor.dummy_motion_sensor.attributes.temperature}}"
+        value_template: "{{states.sensor.motion_hallen.attributes.temperature}}"
         unit_of_measurement: °C
         icon_template: mdi:thermometer
 
