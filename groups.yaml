@@ -43,6 +43,22 @@ Automation_view:
     - group.System
     - group.all_scripts
     - group.all_switches
+    
+Xiaomi_view:
+  view: yes
+  name: Xiaomi
+  icon: mdi:gate-xnor
+  entities:
+    - group.xiaomi_test
+
+xiaomi_test:
+  name: Xiaomi Test
+  entities:
+    - binary_sensor.door_window_sensor_Entre
+    - sensor.illumination_gw
+    - light.Xiaomi_GW
+    - binary_sensor.switch_button1
+    - binary_sensor.pir_1
 
 Car:
   name: HDU757
