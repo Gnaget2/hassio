@@ -13,7 +13,7 @@
   action:
     - service: switch.turn_off
       data:
-        entity_id: group.ytterbelysningen      
+        entity_id: group.ytterbelysningen
     - service: light.turn_off
       data:
         entity_id: group.ytterbelysningen

@@ -244,9 +244,15 @@ hue:
       filename: phue.conf
       allow_unreachable: true
       allow_hue_groups: false
+
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: 16F1BEC45C1F4314
+
 light:
   - platform: rfxtrx
-    automatic_add: true
+    automatic_add: false
     devices:
       0b1100000385a35901000070:
         name: Matbord
@@ -254,7 +260,7 @@ light:
 # All switches and settings
 switch:
   platform: rfxtrx
-  automatic_add: true
+  automatic_add: false
   signal_repetitions: 3
   devices:
     0b1100000000cfa602010f60:
@@ -388,7 +394,7 @@ sensor:
     automatic_add: False
     devices:
       0a52090087000092360179:
-        name: Vardagsrummet
+        name: Sovrummet
         data_type:
          - Humidity
          - Temperature

@@ -76,8 +76,8 @@ vader:
   name: Klimat
   entities:
     -  sensor.sun_state
-    -  sensor.vardagsrummet_temperature
-    -  sensor.vardagsrummet_humidity
+    -  sensor.sovrummet_temperature
+    -  sensor.sovrummet_humidity
     -  sensor.kok_temperature
     
 netatmo:
