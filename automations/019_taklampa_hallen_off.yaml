@@ -1,0 +1,18 @@
+###################################
+## kontrollera taklampan i hallen baserat på rörelse och ljus
+##
+## last changed: 2018-04-15
+###################################
+- alias: '019: Dimm hallen after motion'
+  id: '019'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.hue_pir_hallen
+      to: 'off'
+      for:
+        minutes: 3
+  condition:
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.hall_roof

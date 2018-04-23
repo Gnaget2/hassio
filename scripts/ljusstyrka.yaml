@@ -1,0 +1,8 @@
+styrka:
+  alias: "GW ljussyryka" 
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_7811dcb8d388
+        brightness_pct: 10
+        transition: 2

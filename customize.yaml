@@ -22,10 +22,6 @@ sensor.vardagsrum_temperature:
 sensor.vardagsrum_humidity:
   friendly_name: Luftfuktighet Vardagsrum
 group.all_lights: {}
-sensor.sofias_iphone_battery_level:
-  hidden: true
-sensor.sofias_iphone_battery_state:
-  hidden: true
 group.ovrigt:
   order: 1
 group.lampor3:
@@ -104,8 +100,6 @@ group.uteupp:
 light.tv:
   assumed_state: true
   icon: mdi:television-classic
-light.fonster_vrum:
-  assumed_state: true
 group.all_automations:
   hidden: false
 group.ytterbelysningen:

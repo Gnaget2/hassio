@@ -1,0 +1,26 @@
+###################################
+## kontrollera taklampan i hallen baserat på rörelse och ljus
+##
+## last changed: 2018-04-15
+###################################
+- alias: '017: Hallen tak on'
+  id: '017'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.hue_pir_hallen
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '06:30'
+        before: '20:00'
+      - condition: state
+        entity_id: sensor.dark_hallen
+        state: 'True'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_roof
+        brightness_pct: 100
+        transition: 3

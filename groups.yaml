@@ -43,22 +43,41 @@ Automation_view:
     - group.System
     - group.all_scripts
     - group.all_switches
+    - group.all_light
     
-Xiaomi_view:
+
+conbee_view:
   view: yes
-  name: Xiaomi
+  name: conbee
   icon: mdi:gate-xnor
   entities:
-    - group.xiaomi_test
+    - group.conbee_test
 
-xiaomi_test:
-  name: Xiaomi Test
+conbee_test:
+  name: Conbee Test
   entities:
-    - binary_sensor.door_window_sensor_Entre
-    - sensor.illumination_gw
-    - light.Xiaomi_GW
-    - binary_sensor.switch_button1
-    - binary_sensor.pir_1
+    - binary_sensor.xiaomi_pir_1
+    - binary_sensor.xiaomi_pir_2
+    - binary_sensor.xiaomi_pir_3
+    - binary_sensor.xiaomi_pir_4
+    - binary_sensor.xiaomi_pir_5
+    - binary_sensor.hue_pir_uppe
+    - light.light_1
+    - light.light_2
+    - light.HallenTak1
+    - light.HallenTak2
+    - light.HallenTak3
+    - sensor.dimmer_switch_battery_level
+    - sensor.tradfri_remote_control__battery_level
+    - sensor.hue_pir_uppe
+    - sensor.hue_pir_uppe_2
+    - binary_sensor.hue_pir_hallen
+    - sensor.hue_pir_hallen
+    - sensor.hue_pir_hallen_2
+    - light.gateway_light_7811dcb8d388
+    - sensor.illumination_7811dcb8d388
+    - sensor.dark_uppe
+    - sensor.dark_hallen
 
 Car:
   name: HDU757
@@ -95,21 +114,25 @@ vader:
     -  sensor.sovrummet_temperature
     -  sensor.sovrummet_humidity
     -  sensor.kok_temperature
+    -  sensor.sovrum
+    -  sensor.sovrum_2
+    -  sensor.sovrum_3
     
 netatmo:
   name: Netatmo
   entities:
+    -  sensor.netatmo_ute_temperature
+    -  sensor.netatmo_inne_temperature
+    -  sensor.vind_nu
+    -  sensor.netatmo_regn_rain
     -  sensor.netatmo_inne_co2
     -  sensor.netatmo_inne_humidity
     -  sensor.netatmo_inne_noise
     -  sensor.netatmo_inne_pressure
-    -  sensor.netatmo_inne_temperature
     -  sensor.netatmo_inne_wifi
     -  sensor.netatmo_ute_battery
     -  sensor.netatmo_ute_humidity
     -  sensor.netatmo_ute_radio
-    -  sensor.netatmo_ute_temperature
-    -  sensor.netatmo_regn_rain
     -  sensor.netatmo_regn_battery
     -  sensor.netatmo_regn_radio
     -  sensor.netatmo_vind_angle
@@ -117,7 +140,7 @@ netatmo:
     -  sensor.netatmo_vind_gust_angle
     -  sensor.vind_byar
     -  sensor.netatmo_vind_radio
-    -  sensor.vind_nu
+    
 
 Lampor1:
   name: Barnens rum
@@ -140,10 +163,12 @@ Lampor3:
     -  switch.hallen
     -  switch.kok1
     -  switch.kok2
+    -  switch.kokremote1
+    -  switch.kokremote2
     -  light.matbord
     -  light.tv_bank
     -  switch.under_trappan
-    -  light.tradfri_bulb_e27_opal_1000lm
+    -  light.fonster_vrum
     -  light.tv
     -  switch.VrumTAK
     -  light.fonster_vrum

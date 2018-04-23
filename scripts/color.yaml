@@ -1,0 +1,29 @@
+farg:
+  alias: "GW färg" 
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_7811dcb8d388
+        color_name: blue
+        brightness_pct: 10
+    - delay:
+        seconds: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_7811dcb8d388
+        color_name: red
+        brightness_pct: 10
+    - delay:
+        seconds: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_7811dcb8d388
+        color_name: yellow
+        brightness_pct: 10
+    - delay:
+        seconds: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_7811dcb8d388
+        color_name: green
+        brightness_pct: 10

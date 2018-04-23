@@ -1,14 +1,16 @@
 ###################################
-## auto controllerar ytterbelsyningen 
+## slå på ytterbelsyningen baserat på ljussensorn utomhus
 ##
-## last changed: 2017-11-06
+## last changed: 2018-04-15
 ###################################
 - alias: '004: Ytterbelysningen on'
   id: '004'
   trigger:
-    - platform: sun
-      event: sunset
-      offset: -00:20:00
+    - platform: state
+      entity_id: switch.ljussensor
+      to: 'on'
+      for:
+        minutes: 15
   condition: []
   action:
     - service: switch.turn_on
@@ -16,4 +18,8 @@
         entity_id: group.ytterbelysningen
     - service: light.turn_on
       data:
-        entity_id: group.ytterbelysningen        
+        entity_id: group.ytterbelysningen
+    - service: notify.ios_danell
+      data:
+        message: "outdoor lights on"
+        title: "lights"

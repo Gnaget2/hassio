@@ -1,0 +1,28 @@
+###################################
+## kontrollera taklampan i hallen baserat på rörelse och ljus
+##
+## last changed: 2018-04-15
+###################################
+- alias: '031: Dimm hallen after motion (night)'
+  id: '031'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.hue_pir_hallen
+      to: 'off'
+      for:
+        minutes: 1
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '20:00'
+        before: '06:30'
+      - condition: state
+        entity_id: sensor.dark_hallen
+        state: 'True'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_roof
+        brightness_pct: 20
+        transition: 10

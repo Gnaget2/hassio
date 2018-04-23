@@ -204,11 +204,11 @@ ios:
 #Device tracker component
 device_tracker:
   - platform: bluetooth_tracker
-    interval_seconds: 20
+    interval_seconds: 10
     consider_home: 60
-    track_new_devices: no
+    track_new_devices: yes
   - platform: nmap_tracker
-    consider_home: 60
+    consider_home: 180
     hosts: 
       - 192.168.1.201
       - 192.168.1.202
@@ -221,6 +221,10 @@ media_player:
 
 #Notify component for messages and puch notis
 notify:
+
+deconz:
+  host: 127.0.0.1
+  port: 8080
 
 alexa:
 
@@ -235,20 +239,17 @@ rfxtrx:
   device: /dev/ttyUSB1
 
 #Lights and bridges like tradfri and Hue
-tradfri:
-  host: 192.168.1.205
-  allow_tradfri_groups: false
 hue:
   bridges:
     - host: 192.168.1.204
-      filename: phue.conf
       allow_unreachable: true
       allow_hue_groups: false
 
 xiaomi_aqara:
-  discovery_retry: 5
   gateways:
-    - key: 16F1BEC45C1F4314
+   - mac: 7811dcb8d388
+     key: EC3AE8DA2C264473
+
 
 light:
   - platform: rfxtrx
@@ -260,13 +261,19 @@ light:
 # All switches and settings
 switch:
   platform: rfxtrx
-  automatic_add: false
+  automatic_add: true
   signal_repetitions: 3
   devices:
-    0b1100000000cfa602010f60:
+    0b11000265bc0cfe04010f70:
       name: Kök2
-    0b11000000b0fa0c01010f70:
+    0b11000543bc0cfe05010f70:
       name: Kök1
+    0b1100000000cfa602010f60:
+      name: Kökremote2
+      fire_event: true
+    0b1100080000cfa601010f60:
+      name: Kökremote1
+      fire_event: true
     0b1100090159857201010f70:
       name: Ute Entreslinga
     0b1100090159857202010f70:
@@ -343,7 +350,7 @@ sensor:
       micke:
         friendly_name: "Micke"
         value_template: >-
-          {% if is_state("device_tracker.danell", "home") or is_state("device_tracker.danell_2", "home") or is_state("device_tracker.danelllan", "home") %}
+          {% if is_state("device_tracker.danell", "home") or is_state("device_tracker.danell_3", "home") or is_state("device_tracker.danelllan", "home") %}
             Hemma
           {% else %}
           {% if is_state("device_tracker.danell", "not_home") %}
@@ -352,7 +359,7 @@ sensor:
           {% endif %}
           {% endif %}
         icon_template: >-
-          {% if is_state("device_tracker.danell", "home") or is_state("device_tracker.danell_2", "home") or is_state("device_tracker.danelllan", "home") %}
+          {% if is_state("device_tracker.danell", "home") or is_state("device_tracker.danell_3", "home") or is_state("device_tracker.danelllan", "home") %}
             mdi:home-circle
           {% else %}
           {% if is_state("device_tracker.danell", "not_home") %}
@@ -365,7 +372,7 @@ sensor:
       fia:
         friendly_name: "Fia"
         value_template: >-
-          {% if is_state("device_tracker.sofias_iphone", "home") or is_state("device_tracker.fia_wifi", "home") %}
+          {% if is_state("device_tracker.sofias_iphone", "home") or is_state("device_tracker.fia_wifi", "home") or is_state("device_tracker.sofias_iphone_2", "home") %}
             Hemma
           {% else %}
           {% if is_state("device_tracker.sofias_iphone", "not_home") %}
@@ -374,7 +381,7 @@ sensor:
           {% endif %}
           {% endif %}
         icon_template: >-
-          {% if is_state("device_tracker.sofias_iphone", "home") or is_state("device_tracker.fia_wifi", "home") %}
+          {% if is_state("device_tracker.sofias_iphone", "home") or is_state("device_tracker.fia_wifi", "home") or is_state("device_tracker.sofias_iphone_2", "home") %}
             mdi:home-circle
           {% else %}
           {% if is_state("device_tracker.sofias_iphone", "not_home") %}
@@ -383,6 +390,34 @@ sensor:
             {% set zone = states.device_tracker.sofias_iphone.state %}
             {{ states.zone[zone].attributes.icon }}
           {% endif %}
+          {% endif %}
+      dark_hallen:
+        friendly_name: "Dark Hallen"
+        value_template: >-
+          {% if states.sensor.hue_pir_hallen.state | float < 50 %}
+            True
+          {% else %}
+            False
+          {% endif %}
+        icon_template: >-
+          {% if states.sensor.hue_pir_hallen.state | float < 50 %}
+            mdi:weather-night
+          {% else %}
+            mdi:weather-sunny
+          {% endif %}
+      dark_uppe:
+        friendly_name: "Dark uppe"
+        value_template: >-
+          {% if states.sensor.hue_pir_uppe.state | float < 50 %}
+            True
+          {% else %}
+            False
+          {% endif %}
+        icon_template: >-
+          {% if states.sensor.hue_pir_uppe.state | float < 50 %}
+            mdi:weather-night
+          {% else %}
+            mdi:weather-sunny
           {% endif %}
   - platform: statistics
     entity_id: sensor.kok_temperature
