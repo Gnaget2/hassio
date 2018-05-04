@@ -208,7 +208,7 @@ input_number:
 input_boolean:
   heaterstatus:
     name: Aktivera
-    initial: on
+    initial: off
     icon: mdi:check-outline
   heaterweekday:
     name: Endast vardagar

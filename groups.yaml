@@ -43,7 +43,7 @@ Automation_view:
     - group.System
     - group.all_scripts
     - group.all_switches
-    - group.all_light
+    - group.all_lights
     
 
 conbee_view:
@@ -54,6 +54,7 @@ conbee_view:
     - group.conbee_test
 
 conbee_test:
+  control: hidden
   name: Conbee Test
   entities:
     - binary_sensor.xiaomi_pir_1
@@ -80,6 +81,7 @@ conbee_test:
     - sensor.dark_hallen
 
 Car:
+  control: hidden
   name: HDU757
   entities:
     - lock.hdu757_lock
@@ -145,22 +147,23 @@ netatmo:
 Lampor1:
   name: Barnens rum
   entities:
-    -  switch.liams_fonster
+    -  light.liams_fonster
     -  switch.mirandas_fonster
     
 Lampor2:
   name: Lampor Övervåningen
   entities:
-    -  switch.liams_fonster
+    -  light.liams_fonster
     -  switch.mirandas_fonster
     -  switch.sovrum
-    -  switch.allrum
+    -  light.allrum
+    -  light.trappan
 
 Lampor3:
   name: Lampor Undervåningen
   entities:
     -  group.Lampor5
-    -  switch.hallen
+    -  light.hallen
     -  switch.kok1
     -  switch.kok2
     -  switch.kokremote1
@@ -172,16 +175,13 @@ Lampor3:
     -  light.tv
     -  switch.VrumTAK
     -  light.fonster_vrum
-    -  light.bankskiva
-    -  light.diskbank
+    -  light.kitchen
     
 Lampor4:
   name: Lampor godnatt
   entities:
-    -  switch.hallen
     -  switch.under_trappan
     -  switch.fonster_bak1
-    -  switch.fonster_bak2
     -  switch.kok1
     -  switch.kok2
 
@@ -191,12 +191,10 @@ Lampor5:
     -  switch.fonster_gangvag
     -  switch.fonster_kok
     -  switch.fonster_bak1
-    -  switch.fonster_bak2
 
 Lampor6:
   name: Välkommen hem
   entities:
-    -  switch.Hallen
     -  switch.under_trappan
 
 
@@ -211,46 +209,20 @@ Lampor7:
 Lampor8:
   name: Alla Lampor
   entities:
-    -  switch.hallen
     -  switch.under_trappan
     -  switch.fonster_bak1
-    -  switch.fonster_bak2
     -  switch.kok1
     -  switch.kok2
     -  switch.fonster_gangvag
     -  switch.fonster_kok
-    -  switch.liams_fonster
     -  switch.mirandas_fonster
     -  switch.sovrum
-    -  switch.allrum
     -  switch.ute_entre
     -  switch.ute_entreslinga
     -  switch.ute_trad_baksida
-
+    
 Lampor9:
-  name: kokfonster
-  entities:
-    -  light.diskbank
-    -  light.bankskiva
-
-UteUpp:
-  name: Fasad Uppåt
-  entities:
-    -  light.ute_framu
-    -  light.ute_gangvag_upp
-    -  light.ute_uppfart_upp
-    -  light.ute_bak1_upp
-    -  light.ute_bak2_upp
-
-UteNer:
-  name: Fasad Neråt
-  entities:
-    -  light.ute_forad_ner
-    -  light.ute_framn
-    -  light.ute_gangvag_ner
-    -  light.ute_uppfart_ner
-    -  light.ute_bak1_ner
-    -  light.ute_bak2_ner
+  name: Lampor hall/trappa
 
 
 
@@ -261,8 +233,8 @@ ytterbelysningen:
     -  switch.ute_entre
     -  switch.ute_entreslinga
     -  switch.ute_trad_baksida
-    -  group.UteUpp
-    -  group.UteNer
+    -  light.ute_upp
+    -  light.ute_ner
     
 AppleTV:
   name: Apple TV

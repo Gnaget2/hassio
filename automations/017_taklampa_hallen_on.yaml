@@ -23,4 +23,4 @@
       data:
         entity_id: light.hall_roof
         brightness_pct: 100
-        transition: 3
+        transition: 2

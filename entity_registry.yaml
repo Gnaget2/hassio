@@ -1,59 +1,3 @@
-light.hue_white_lamp_3:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:87:af:4b-0b
-light.ute_bak2_ner:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:03:5a:c6:33-0b
-light.ute_bak2_upp:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:b9:f9:2b-0b
-light.ute_gangvag_upp:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:b9:f1:87-0b
-light.ute_bak1_upp:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:b9:d2:5e-0b
-light.ute_bak1_ner:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:b9:d2:cf-0b
-light.ute_uppfart_ner:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:03:5a:c9:c8-0b
-light.hue_white_lamp_2:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:87:ad:c0-0b
-light.ute_gangvag_ner:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:03:5a:c9:ff-0b
-light.ute_uppfart_upp:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:b9:d3:95-0b
-light.ute_framn:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:b9:fe:7c-0b
-light.vrum2:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:ab:11:33-0b
-light.ute_forad_ner:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:ab:10:14-0b
-light.ute_framu:
-  name:
-  platform: hue
-  unique_id: 00:17:88:01:02:b9:f1:ea-0b
 media_player.home:
   name:
   platform: sonos
@@ -74,16 +18,8 @@ sensor.danell_battery_level:
   name:
   platform: ios
   unique_id: level_danell
-media_player.apple_tv:
-  name:
-  platform: apple_tv
-  unique_id: 1d7564faef0d2fbafaf560a29ef679f803dc0127079e4d2fe41d28988a8e49fd
-remote.apple_tv:
-  name:
-  platform: apple_tv
-  unique_id: 1d7564faef0d2fbafaf560a29ef679f803dc0127079e4d2fe41d28988a8e49fd
 binary_sensor.xiaomi_pir_1:
-  name:
+  name: PIR Köket
   platform: deconz
   unique_id: 00:15:8d:00:01:e7:e1:44-01-0406
 binary_sensor.hue_pir_uppe:
@@ -194,27 +130,151 @@ sensor.lumisensor_switch_battery_level:
   name:
   platform: deconz
   unique_id: 00:15:8d:00:02:24:49:f9-01-0006
-light.kok2_1:
+light.allrumtak1:
   name:
   platform: deconz
   unique_id: 00:17:88:01:02:ab:02:8d-0b
-light.kok2_2:
+light.allrumtak4:
   name:
   platform: deconz
   unique_id: 00:17:88:01:02:ab:10:0f-0b
+light.allrumtak3:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:ab:10:f6-0b
+light.allrumtak2:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:ab:0e:74-0b
 binary_sensor.altandorr:
   name:
   platform: deconz
   unique_id: 00:15:8d:00:01:f3:6a:9b-01-0006
 sensor.sovrum:
-  name:
+  name: Sovrum temp
   platform: deconz
   unique_id: 00:15:8d:00:01:f5:21:cb-01-0402
 sensor.sovrum_2:
-  name:
+  name: Sovrum luftfuktighet
   platform: deconz
   unique_id: 00:15:8d:00:01:f5:21:cb-01-0405
 sensor.sovrum_3:
-  name:
+  name: Sovrum tryck
   platform: deconz
   unique_id: 00:15:8d:00:01:f5:21:cb-01-0403
+light.kok2_1:
+  name:
+  platform: deconz
+  unique_id: 00:0b:57:ff:fe:af:8b:ee-01
+light.kok2_2:
+  name:
+  platform: deconz
+  unique_id: 00:0b:57:ff:fe:b1:39:bc-01
+light.liamtak:
+  name:
+  platform: deconz
+  unique_id: 00:0b:57:ff:fe:c6:45:6a-01
+light.tvattstugan:
+  name:
+  platform: deconz
+  unique_id: 00:0b:57:ff:fe:4a:eb:cc-01
+light.badrumtaknere:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:87:ad:c0-0b
+light.bardrumtakuppe:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:87:af:4b-0b
+binary_sensor.koksdorr:
+  name:
+  platform: deconz
+  unique_id: 00:15:8d:00:01:fa:37:8e-01-0006
+binary_sensor.tvattstugedorr:
+  name:
+  platform: deconz
+  unique_id: 00:15:8d:00:01:ef:31:cc-01-0006
+binary_sensor.koksfonster:
+  name:
+  platform: deconz
+  unique_id: 00:15:8d:00:01:c1:ca:fc-01-0006
+light.hallen:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:03:61:d3:a0-0b
+light.trappan:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:03:61:d9:bd-0b
+light.allrum:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:03:61:d7:c2-0b
+light.liam_fonster:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:03:61:d3:5e-0b
+light.hue_white_lamp_2:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:87:ad:c0-0b
+light.hue_white_lamp_3:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:87:af:4b-0b
+sensor.daylight:
+  name:
+  platform: deconz
+  unique_id: 00:21:2e:ff:ff:02:2d:63-01
+media_player.apple_tv:
+  name:
+  platform: apple_tv
+  unique_id: fde04af32f848d95d381f84707122a7bfd09257cacdde55b96ca71d4a9964beb
+remote.apple_tv:
+  name:
+  platform: apple_tv
+  unique_id: fde04af32f848d95d381f84707122a7bfd09257cacdde55b96ca71d4a9964beb
+light.ute_fram_n:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:b9:fe:7c-0b
+light.ute_fram_u:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:b9:f1:ea-0b
+light.ute_forad_n:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:ab:10:14-0b
+light.ute_uppfart_n:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:03:5a:c9:c8-0b
+light.ute_uppfart_u:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:b9:d3:95-0b
+light.ute_bak2_n:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:b9:d2:cf-0b
+light.ute_bak2_u:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:b9:d2:5e-0b
+light.ute_bak1_n:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:03:5a:c6:33-0b
+light.ute_bak1_u:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:b9:f9:2b-0b
+light.ute_gangvag_n:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:03:5a:c9:ff-0b
+light.ute_gangvag_u:
+  name:
+  platform: deconz
+  unique_id: 00:17:88:01:02:b9:f1:87-0b

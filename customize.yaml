@@ -21,7 +21,8 @@ sensor.vardagsrum_temperature:
   friendly_name: Temp Vardagsrum
 sensor.vardagsrum_humidity:
   friendly_name: Luftfuktighet Vardagsrum
-group.all_lights: {}
+group.all_lights:
+  hidden: false
 group.ovrigt:
   order: 1
 group.lampor3:
@@ -41,11 +42,7 @@ switch.motorvarmaren:
 light.matbord:
   assumed_state: true
   icon: mdi:ceiling-light
-switch.hallen:
-  icon: mdi:lightbulb
 switch.fonster_bak1:
-  icon: mdi:lightbulb
-switch.fonster_bak2:
   icon: mdi:lightbulb
 switch.fonster_gangvag:
   icon: mdi:lightbulb
@@ -53,11 +50,7 @@ switch.kok1:
   icon: mdi:lightbulb
 switch.kok2:
   icon: mdi:lightbulb
-switch.liams_fonster:
-  icon: mdi:lightbulb
 switch.sovrum:
-  icon: mdi:lightbulb
-switch.tvbank:
   icon: mdi:lightbulb
 switch.ute_entre:
   icon: mdi:alarm-light
@@ -81,9 +74,6 @@ sensor.yr_fog:
   friendly_name: Dimma
 group.all_scripts:
   hidden: false
-light.tradfri_bulb_e27_opal_1000lm:
-  assumed_state: true
-  friendly_name: Tvättstugan
 sensor.tradfri_motion_sensor:
   friendly_name: Motion sensor tvättstugan
 switch.under_trappan:
@@ -112,11 +102,39 @@ switch.ute_trad_baksida:
   icon: mdi:alarm-light
 sensor.disk_used_home:
   friendly_name: Disk used
-script.ljud:
-  homebridge_visible: true
 sensor.danell_battery_level:
   hidden: true
 sensor.danell_battery_state:
   hidden: true
-script.godnight:
-  homebridge_visible: true
+light.kok2_2:
+  hidden: true
+light.allrumtak2:
+  hidden: true
+light.allrumtak3:
+  hidden: true
+light.kok2_1:
+  hidden: true
+light.kitchen:
+  friendly_name: Köksbänkarna
+light.ute_uppfart_u:
+  hidden: true
+light.ute_uppfart_n:
+  hidden: true
+light.ute_bak1_n:
+  hidden: true
+light.ute_bak1_u:
+  hidden: true
+light.ute_bak2_n:
+  hidden: true
+light.ute_bak2_u:
+  hidden: true
+light.ute_forad_n:
+  hidden: true
+light.ute_fram_n:
+  hidden: true
+light.ute_fram_u:
+  hidden: true
+light.ute_gangvag_n:
+  hidden: true
+light.ute_gangvag_u:
+  hidden: true

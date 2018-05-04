@@ -1,0 +1,21 @@
+###################################
+## Tänd när vi kommer hem
+##
+## last changed: 2018-05-04
+###################################
+- alias: '003: Welcome home'
+  id: '003'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.larmstatus
+      to: 'off'
+  condition:
+    - condition: time
+      after: '08:00'
+      before: '23:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: group.Lampor7
+        brightness_pct: 90 
+        transition: 10

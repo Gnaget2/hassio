@@ -1,0 +1,27 @@
+###################################
+## belsyningen i hallen off
+##
+## last changed: 2018-05-04
+###################################
+- alias: '030: belysning hallen off'
+  id: '030'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.larmstatus
+      to: 'on'
+    - platform: state
+      entity_id: sensor.dark_hallen
+      to: 'False'
+      for:
+        minutes: 5
+  condition: []
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: group.Lampor6
+    - service: light.turn_off
+      data:
+        entity_id: 
+          - light.hall_roof
+          - light.hallen
+          - light.trappan

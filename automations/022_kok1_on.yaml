@@ -1,7 +1,7 @@
 ###################################
 ## auto tänd bänkbelysning vid rörelse
 ##
-## last changed: 2018-02-25
+## last changed: 2018-04-25
 ###################################
 - alias: '022: Tänd köket vid rörelse'
   id: '022'
@@ -13,6 +13,6 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: group.Lampor9
-        brightness_pct: 99
+        entity_id: light.kitchen
+        brightness_pct: 100
         transition: 2

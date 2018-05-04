@@ -1,0 +1,34 @@
+###################################
+## belyningen hallen on
+##
+## last changed: 2018-05-04
+###################################
+- alias: '029: belysning hallen on'
+  id: '029'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.larmstatus
+      to: 'off'
+    - platform: state
+      entity_id: sensor.dark_hallen
+      to: 'True'
+      for:
+        minutes: 3
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.larmstatus
+        state: 'off'
+      - condition: state
+        entity_id: sensor.dark_hallen
+        state: 'True'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: group.Lampor6
+    - service: light.turn_on
+      data:
+        entity_id: 
+          - light.hallen
+          - light.trappan

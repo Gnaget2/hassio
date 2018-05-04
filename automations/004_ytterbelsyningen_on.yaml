@@ -10,7 +10,7 @@
       entity_id: switch.ljussensor
       to: 'on'
       for:
-        minutes: 15
+        minutes: 20
   condition: []
   action:
     - service: switch.turn_on

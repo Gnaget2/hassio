@@ -1,14 +1,15 @@
 [
     {
         "data": {
-            "bridge_id": "001788FFFE61A31C",
-            "host": "192.168.1.204",
-            "username": "1D3AewgDnpB0orVF-v2hHuQ-ZflRXWecYlkrbsP8"
+            "api_key": "889D29688A",
+            "bridgeid": "00212EFFFF022D63",
+            "host": "127.0.0.1",
+            "port": 8080
         },
-        "domain": "hue",
-        "entry_id": "8c9ed15b29b747c88770f6a031caa5f8",
+        "domain": "deconz",
+        "entry_id": "7e9ec47113c248f9a4fe6f1681fa0968",
         "source": "import",
-        "title": "Philips hue",
+        "title": "deCONZ-00212EFFFF022D63",
         "version": 1
     }
 ]

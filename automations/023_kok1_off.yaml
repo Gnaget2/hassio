@@ -1,7 +1,7 @@
 ###################################
-## meddela ny enhet upptäckt
+## Dimmra köket efter ingen rörelse
 ##
-## last changed: 2018-01-04
+## last changed: 2018-04-25
 ###################################
 - alias: '023: Släck köket efter rörelse'
   id: '023'
@@ -15,6 +15,6 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: group.Lampor9
+        entity_id: light.kitchen
         brightness_pct: 40
         transition: 10

@@ -137,23 +137,21 @@ logbook:
   exclude:
     entities:
       - sensor.yr_symbol
-      - remote.apple_tv
-      - remote.hub1
       - switch.rorelse_koket
-      - device_tracker.fia_wifi
-      - device_tracker.sofias_iphone
       - group.appletv
       - media_player.apple_tv
-      - device_tracker.danell_2
-      - device_tracker.danell
-      - device_tracker.danelllan
       - camera.weather
-      - light.vrum1
-      - light.vrum2
-      - light.vrum3
-      - light.hallen_1
-      - light.hallen_2
-      - light.hallen_3
+      - input_select.living_room_tv
+      - sensor.fia
+      - sensor.micke
+    domains:
+      - sun
+      - weblink
+      - device_tracker
+      - remote
+      - group
+
+
 
 #Recorder delete old data from DB
 recorder:
@@ -204,11 +202,12 @@ ios:
 #Device tracker component
 device_tracker:
   - platform: bluetooth_tracker
-    interval_seconds: 10
-    consider_home: 60
+    interval_seconds: 20
+    consider_home: 120
     track_new_devices: yes
   - platform: nmap_tracker
-    consider_home: 180
+    consider_home: 120
+    interval_seconds: 10
     hosts: 
       - 192.168.1.201
       - 192.168.1.202
@@ -239,11 +238,6 @@ rfxtrx:
   device: /dev/ttyUSB1
 
 #Lights and bridges like tradfri and Hue
-hue:
-  bridges:
-    - host: 192.168.1.204
-      allow_unreachable: true
-      allow_hue_groups: false
 
 xiaomi_aqara:
   gateways:
@@ -276,8 +270,8 @@ switch:
       fire_event: true
     0b1100090159857201010f70:
       name: Ute Entreslinga
-    0b1100090159857202010f70:
-      name: Ute träd baksida
+#    0b1100090159857202010f70:
+#      name: Ute träd baksida
     0b1100090159857203010f70:
       name: Under Trappan
     0b1100000149f9e101000070:
@@ -285,19 +279,15 @@ switch:
     0b11000003addc7d01000070:
       name: Fönster bak2
     0b11000201d99a1201000070:
-      name: Hallen
-    0b11000a018e6f5210010f60:
-      name: Fönster kök
-    0b11000201811ff501000070:
       name: Fönster gångväg
+    0b11000a018e6f5210010f60:
+      name: Fönster kök 
     0b11000302d77c2901000070:
       name: Ute Entre
-    0b1100000187956601000070:
-      name: Allrum
+#    0b1100000187956601000070:
+#      name: Allrum
     0b110000033ad7de01000070:
       name: Sovrum
-    0b11000001321dee01000070:
-      name: Liams fönster
     0b1100010029c6d301000070:
       name: Mirandas fönster
     0b11000d0328562e01000070:
@@ -316,8 +306,8 @@ switch:
     0b11000b0009ac5201010f70:
       name: Hall B2
       fire_event: true
-    0b11000166bc0cfe07010f70:
-      name: Bänskiva
+#    0b11000166bc0cfe07010f70:
+#      name: Bänskiva
 
 #All sensors
 sensor:
@@ -419,12 +409,6 @@ sensor:
           {% else %}
             mdi:weather-sunny
           {% endif %}
-  - platform: statistics
-    entity_id: sensor.kok_temperature
-    name: Kok_stats
-  - platform: statistics
-    entity_id: sensor.netatmo_inne_temperature
-    name: inne_stats
   - platform: rfxtrx
     automatic_add: False
     devices:
@@ -441,7 +425,12 @@ sensor:
       - type: processor_use
   - platform: uptime
 
-
+# Bolean section
+input_boolean:
+  larmstatus:
+    name: Larmstatus
+    initial: off
+    icon: mdi:bell-outline
 
 # Verisure integration
 verisure:
