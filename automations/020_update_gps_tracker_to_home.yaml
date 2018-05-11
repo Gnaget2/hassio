@@ -22,7 +22,3 @@
           {% else %}
             Danell
           {% endif %}
-    - service: notify.ios_danell
-      data_template:
-        message: >
-          py script started. trigger entity is {{ trigger.entity_id }}
