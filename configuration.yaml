@@ -222,6 +222,8 @@ media_player:
 #Notify component for messages and puch notis
 notify:
 
+python_script:
+
 deconz:
   host: 127.0.0.1
   port: 8080
