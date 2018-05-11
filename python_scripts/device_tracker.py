@@ -1,5 +1,4 @@
 # Get Data from Automation Trigger
-triggeredEntity = data.get('entity_id')
 metatrackerName = "device_tracker." + data.get('meta_entity')
  
 # Set new state
