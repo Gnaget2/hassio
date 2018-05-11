@@ -147,35 +147,34 @@ netatmo:
 Lampor1:
   name: Barnens rum
   entities:
-    -  light.liams_fonster
+    -  light.liam_fonster
     -  switch.mirandas_fonster
     
 Lampor2:
   name: Lampor Övervåningen
   entities:
-    -  light.liams_fonster
+    -  light.liam_fonster
     -  switch.mirandas_fonster
     -  switch.sovrum
     -  light.allrum
-    -  light.trappan
 
 Lampor3:
   name: Lampor Undervåningen
   entities:
     -  group.Lampor5
     -  light.hallen
+    -  light.trappan
+    -  switch.under_trappan
     -  switch.kok1
     -  switch.kok2
-    -  switch.kokremote1
-    -  switch.kokremote2
     -  light.matbord
     -  light.tv_bank
-    -  switch.under_trappan
-    -  light.fonster_vrum
     -  light.tv
+    -  light.fonster_vrum
     -  switch.VrumTAK
     -  light.fonster_vrum
     -  light.kitchen
+
     
 Lampor4:
   name: Lampor godnatt
@@ -183,7 +182,7 @@ Lampor4:
     -  switch.under_trappan
     -  switch.fonster_bak1
     -  switch.kok1
-    -  switch.kok2
+    -  switch.fonster_kok
 
 Lampor5:
   name: Lampor fönster undervåningen
@@ -212,17 +211,27 @@ Lampor8:
     -  switch.under_trappan
     -  switch.fonster_bak1
     -  switch.kok1
-    -  switch.kok2
     -  switch.fonster_gangvag
     -  switch.fonster_kok
     -  switch.mirandas_fonster
     -  switch.sovrum
-    -  switch.ute_entre
-    -  switch.ute_entreslinga
-    -  switch.ute_trad_baksida
+
     
 Lampor9:
   name: Lampor hall/trappa
+  entities:
+    -  light.hallen
+    -  light.trappan
+    -  light.hall_roof
+
+Lampor10:
+  name: övrigt
+  entities:
+    -  light.kok2
+    -  light.allrum_roof
+    -  light.kitchen
+    -  light.tv_roof
+    -  light.liam
 
 
 

@@ -1,0 +1,28 @@
+###################################
+## Uppdatera GPS tracker när vi kommer hem
+##
+## last changed: 2018-05-11
+###################################
+- alias: '020: Update GPS tracker to home'
+  id: '020'
+  trigger:
+    - platform: state
+      entity_id: sensor.fia
+      to: 'Hemma'
+    - platform: state
+      entity_id: sensor.micke
+      to: 'Hemma'
+  action:
+    - service: python_script.device_tracker
+      data_template:
+        entity_id: '{{trigger.entity_id}}'
+        meta_entity: >
+          {% if trigger.entity_id == 'sensor.fia' %}
+            sofias_iphone
+          {% else %}
+            Danell
+          {% endif %}
+    - service: notify.ios_danell
+      data_template:
+        message: >
+          py script started. trigger entity is {{ trigger.entity_id }}

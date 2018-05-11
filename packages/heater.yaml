@@ -23,7 +23,7 @@ automation:
         - condition: and
           conditions:
             - condition: numeric_state
-              entity_id: sensor.yr_temperature
+              entity_id: sensor.netatmo_ute_temperature
               below: '-10'
             - condition: template
               value_template: '{{ ((now().strftime("%s") | int + 5400 ) | timestamp_custom("%H:%M")) == states.sensor.departuretime.state  }}'
@@ -43,7 +43,7 @@ automation:
         - condition: and
           conditions:
             - condition: numeric_state
-              entity_id: sensor.yr_temperature
+              entity_id: sensor.netatmo_ute_temperature
               below: '-10'
             - condition: template
               value_template: '{{ ((now().strftime("%s") | int + 5400 ) | timestamp_custom("%H:%M")) == states.sensor.departuretime.state  }}'
@@ -72,7 +72,7 @@ automation:
         - condition: and
           conditions:
             - condition: numeric_state
-              entity_id: sensor.yr_temperature
+              entity_id: sensor.netatmo_ute_temperature
               below: '1'
             - condition: template
               value_template: '{{ ((now().strftime("%s") | int + 1800 ) | timestamp_custom("%H:%M")) == states.sensor.departuretime.state  }}'
@@ -92,7 +92,7 @@ automation:
         - condition: and
           conditions:
             - condition: numeric_state
-              entity_id: sensor.yr_temperature
+              entity_id: sensor.netatmo_ute_temperature
               below: '1'
             - condition: template
               value_template: '{{ ((now().strftime("%s") | int + 1800 ) | timestamp_custom("%H:%M")) == states.sensor.departuretime.state  }}'
@@ -121,7 +121,7 @@ automation:
         - condition: and
           conditions:
             - condition: numeric_state
-              entity_id: sensor.yr_temperature
+              entity_id: sensor.netatmo_ute_temperature
               below: '1'
             - condition: template
               value_template: '{{ ((now().strftime("%s") | int - 900 ) | timestamp_custom("%H:%M")) == states.sensor.departuretime.state  }}'
@@ -141,7 +141,7 @@ automation:
         - condition: and
           conditions:
             - condition: numeric_state
-              entity_id: sensor.yr_temperature
+              entity_id: sensor.netatmo_ute_temperature
               below: '1'
             - condition: template
               value_template: '{{ ((now().strftime("%s") | int - 900 ) | timestamp_custom("%H:%M")) == states.sensor.departuretime.state  }}'
@@ -247,7 +247,7 @@ group:
       - sensor.heater_start_time
       - input_number.heater_hour
       - input_number.heater_minutes
-      - sensor.yr_temperature
+      - sensor.netatmo_ute_temperature
       - switch.motorvarmaren
       - input_boolean.heaterstatus
       - input_boolean.heaterweekday

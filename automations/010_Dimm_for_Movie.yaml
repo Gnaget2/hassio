@@ -1,7 +1,7 @@
 ###################################
-## auto Dimmra och slå av belysning för FILM
+## auto Dimmra belysning för FILM
 ##
-## last changed: 2017-11-06
+## last changed: 2018-05-04
 ###################################
 - alias: '010: dimm for Movie'
   id: '010'
@@ -13,12 +13,8 @@
   - condition: sun
     after: sunset
   action:
-    - service: switch.turn_off
-      data:
-        entity_id: 
-          - switch.fonster_bak2
     - service: light.turn_on
       data:
         entity_id: group.Lampor7
-        brightness_pct: 5 
-        transition: 15                
+        brightness_pct: 5
+        transition: 15

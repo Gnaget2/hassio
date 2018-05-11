@@ -1,7 +1,7 @@
 ###################################
 ## auto godnatt, släck och stäng av 
 ##
-## last changed: 2017-11-05
+## last changed: 2018-05-11
 ###################################
 - alias: '001: Godnatt'
   id: '001'
@@ -16,6 +16,7 @@
   condition:
     - condition: time
       after: '22:00'
+      before: '03:00'
     - condition: state
       entity_id: remote.hub1
       state: 'off'
@@ -28,3 +29,4 @@
         entity_id:
           - group.Lampor7
           - group.Lampor9
+          - group.Lampor10

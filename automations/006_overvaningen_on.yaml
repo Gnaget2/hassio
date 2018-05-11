@@ -1,7 +1,7 @@
 ###################################
-## auto controllerar ytterbelsyningen 
+## Slå på belysningen på övervåningen
 ##
-## last changed: 2017-11-06
+## last changed: 2018-05-04
 ###################################
 - alias: '006: Overvaningen on'
   id: '006'
@@ -11,6 +11,9 @@
       offset: -01:00:00
   condition: []
   action:
+    - service: light.turn_on
+      data:
+        entity_id: group.Lampor2
     - service: switch.turn_on
       data:
         entity_id: group.Lampor2

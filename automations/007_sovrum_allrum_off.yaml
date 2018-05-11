@@ -1,7 +1,7 @@
 ###################################
-## auto controllerar ytterbelsyningen 
+## Stäng av belysning i sovrum samt allrum 
 ##
-## last changed: 2017-11-06
+## last changed: 2018-05-04
 ###################################
 - alias: '007: Overvaningen sovrum allrum off'
   id: '007'
@@ -13,5 +13,8 @@
     - service: switch.turn_off
       data:
         entity_id: 
-          - switch.allrum
           - switch.sovrum
+    - service: light.turn_off
+      data:
+        entity_id: 
+          - light.allrum

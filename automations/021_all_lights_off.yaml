@@ -1,20 +1,30 @@
 ###################################
-## auto controllerar ytterbelsyningen 
+## Släck när vi lämnar hemmet eller det blir ljust
 ##
-## last changed: 2017-11-27
+## last changed: 2018-05-04
 ###################################
 - alias: '021: All Lights off'
   id: '021'
   trigger:
     - platform: state
-      entity_id: alarm_control_panel.drivhusslingan_alarm
-      to: 'armed_away'
+      entity_id: input_boolean.larmstatus
+      to: 'on'
+    - platform: state
+      entity_id: sensor.dark_hallen
+      to: 'False'
   condition: []
   action:
     - service: switch.turn_off
       data:
         entity_id:
+          - group.Lampor1
+          - group.Lampor2
           - group.Lampor8
     - service: light.turn_off
       data:
-        entity_id: group.Lampor7
+        entity_id: 
+          - group.Lampor1
+          - group.Lampor2
+          - group.Lampor7
+          - group.Lampor9
+          - group.Lampor10

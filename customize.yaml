@@ -138,3 +138,15 @@ light.ute_gangvag_n:
   hidden: true
 light.ute_gangvag_u:
   hidden: true
+light.diskbank:
+  hidden: true
+light.allrumtak1:
+  hidden: true
+light.allrumtak4:
+  hidden: true
+light.vrumtak1:
+  hidden: true
+light.vrumtak2:
+  hidden: true
+light.vrumtak3:
+  hidden: true

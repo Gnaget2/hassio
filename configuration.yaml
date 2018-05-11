@@ -211,6 +211,7 @@ device_tracker:
     hosts: 
       - 192.168.1.201
       - 192.168.1.202
+      - 192.168.1.203
 
 media_player:
   - platform: spotify
@@ -284,10 +285,10 @@ switch:
       name: Fönster kök 
     0b11000302d77c2901000070:
       name: Ute Entre
-#    0b1100000187956601000070:
-#      name: Allrum
-    0b110000033ad7de01000070:
+    0b1100000187956601000070:
       name: Sovrum
+#    0b110000033ad7de01000070:
+#      name: Sovrum
     0b1100010029c6d301000070:
       name: Mirandas fönster
     0b11000d0328562e01000070:
@@ -431,6 +432,10 @@ input_boolean:
     name: Larmstatus
     initial: off
     icon: mdi:bell-outline
+  nightstatus:
+    name: Nightstatus
+    initial: off
+    icon: mdi:weather-night
 
 # Verisure integration
 verisure:
