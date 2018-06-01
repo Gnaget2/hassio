@@ -90,17 +90,59 @@ automation:
       service: homeassistant.turn_on
       entity_id: input_boolean.hallen_night_left2
 
-
-  - alias: "Right button"
+      
+  - alias: "Right button 1"
     initial_state: true
     trigger:
       platform: event
       event_type: button_pressed
       event_data: {"state": "on", "entity_id": "switch.hall_b2"}
-    action:
-      service: homeassistant.turn_on
+    condition:
+    - condition: state
       entity_id: input_boolean.hallen_right1
+      state: 'off'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.hallen_right1
+      - service: scene.turn_on
+        entity_id: scene.Daymode1
 
+  - alias: "Right button 2"
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: {"state": "on", "entity_id": "switch.hall_b2"}
+    condition:
+    - condition: state
+      entity_id: input_boolean.hallen_right1
+      state: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.hallen_right2
+      - service: scene.turn_on
+        entity_id: scene.Daymode2
+
+  - alias: "Right button 3"
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: {"state": "on", "entity_id": "switch.hall_b2"}
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.hallen_right2
+          state: 'on'
+        - condition: state
+          entity_id: input_boolean.hallen_right3
+          state: 'off'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.hallen_right3
+      - service: scene.turn_on
+        entity_id: scene.Daymode3
 
 # Bolean section
 input_boolean:
@@ -118,16 +160,19 @@ input_boolean:
     icon: mdi:numeric-3-box-outline
   hallen_right1:
     name: Day Mode 1
-    initial: off
     icon: mdi:numeric-1-box-outline
   hallen_right2:
     name: Day Mode 2
-    initial: off
     icon: mdi:numeric-2-box-outline
   hallen_right3:
     name: Day Mode 3
-    initial: off
     icon: mdi:numeric-3-box-outline
+  hallen_right4:
+    name: Day Mode 4
+    icon: mdi:numeric-4-box-outline
+  hallen_right5:
+    name: Day Mode 5
+    icon: mdi:numeric-5-box-outline
   hallen_night_left1:
     name: Night Mode 1
     initial: off
@@ -189,3 +234,71 @@ script:
       entity_id: switch.motorvarmaren
     - service: automation.turn_on
       entity_id: automation.heater_off
+
+  hall_goodmorning:
+    alias: "God Morgon" 
+    sequence:
+      - service: media_player.sonos_snapshot
+        data:
+          entity_id: media_player.home
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.home
+          volume_level: 0.25
+      - service: tts.google_say
+        entity_id: media_player.home
+        data_template:
+          message: >-
+             God morgon. Det är just nu {{states.sensor.netatmo_ute_temperature.state|round}} grader utomhus och det blåser {{states.sensor.vind_nu.state}}m/s.
+      - delay: '00:00:06'
+      - service: media_player.sonos_restore
+        data:
+          entity_id: media_player.home
+
+  hall_goodday:
+    alias: "God dag" 
+    sequence:
+      - service: media_player.sonos_snapshot
+        data_template:
+          entity_id: media_player.home
+      - service: tts.google_say
+        entity_id: media_player.home
+        data_template:
+          message: >-
+             God dag. Det är just nu {{states.sensor.netatmo_ute_temperature.state|round}} grader utomhus och det blåser {{states.sensor.vind_nu.state}}m/s.
+      - delay: '00:00:06'
+      - service: media_player.sonos_restore
+        data_template:
+          entity_id: media_player.home
+
+  hall_goodevning:
+    alias: "God kväll" 
+    sequence:
+      - service: media_player.sonos_snapshot
+        data_template:
+          entity_id: media_player.home
+      - service: tts.google_say
+        entity_id: media_player.home
+        data_template:
+          message: >-
+             God kväll.
+      - delay: '00:00:03'
+      - service: media_player.sonos_restore
+        data_template:
+          entity_id: media_player.home
+
+  hall_goodnight:
+    alias: "God natt" 
+    sequence:
+      - service: media_player.sonos_snapshot
+        data_template:
+          entity_id: media_player.home
+      - service: tts.google_say
+        entity_id: media_player.home
+        data_template:
+          message: >-
+             God natt.
+      - delay: '00:00:03'
+      - service: media_player.sonos_restore
+        data_template:
+          entity_id: media_player.home

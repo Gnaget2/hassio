@@ -144,6 +144,13 @@ logbook:
       - input_select.living_room_tv
       - sensor.fia
       - sensor.micke
+      - binary_sensor.hue_pir_hallen
+      - binary_sensor.hue_pir_uppe
+      - binary_sensor.xiaomi_pir_1
+      - binary_sensor.xiaomi_pir_2
+      - binary_sensor.xiaomi_pir_3
+      - binary_sensor.xiaomi_pir_4
+      - binary_sensor.xiaomi_pir_5
     domains:
       - sun
       - weblink
@@ -159,7 +166,6 @@ recorder:
   purge_keep_days: 14
   exclude:
     domains:
-      - automation
       - weblink
       - updater
     entities:
@@ -203,11 +209,11 @@ ios:
 device_tracker:
   - platform: bluetooth_tracker
     interval_seconds: 20
-    consider_home: 120
+    consider_home: 60
     track_new_devices: yes
   - platform: nmap_tracker
-    consider_home: 120
-    interval_seconds: 10
+    consider_home: 60
+    interval_seconds: 20
     hosts: 
       - 192.168.1.201
       - 192.168.1.202
@@ -394,6 +400,20 @@ sensor:
           {% endif %}
         icon_template: >-
           {% if states.sensor.hue_pir_hallen.state | float < 50 %}
+            mdi:weather-night
+          {% else %}
+            mdi:weather-sunny
+          {% endif %}
+      dark_nere:
+        friendly_name: "Dark Nere"
+        value_template: >-
+          {% if states.sensor.hue_pir_hallen.state | float < 100 %}
+            True
+          {% else %}
+            False
+          {% endif %}
+        icon_template: >-
+          {% if states.sensor.hue_pir_hallen.state | float < 100 %}
             mdi:weather-night
           {% else %}
             mdi:weather-sunny

@@ -278,3 +278,7 @@ light.ute_gangvag_u:
   name:
   platform: deconz
   unique_id: 00:17:88:01:02:b9:f1:87-0b
+sensor.daylight_2:
+  name:
+  platform: deconz
+  unique_id: 00:00:00:00:00:00:00:00-01

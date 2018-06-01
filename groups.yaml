@@ -79,6 +79,7 @@ conbee_test:
     - sensor.illumination_7811dcb8d388
     - sensor.dark_uppe
     - sensor.dark_hallen
+    - sensor.dark_nere
 
 Car:
   control: hidden

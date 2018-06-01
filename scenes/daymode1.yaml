@@ -1,0 +1,8 @@
+  - name: Daymode1
+    entities:
+      light.tv_bank:
+        state: on
+        brightness: 20
+      light.fonster_vrum:
+        state: on
+        brightness: 20

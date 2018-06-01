@@ -9,9 +9,6 @@
     - platform: state
       entity_id: input_boolean.larmstatus
       to: 'on'
-    - platform: state
-      entity_id: sensor.dark_hallen
-      to: 'False'
   condition: []
   action:
     - service: switch.turn_off
